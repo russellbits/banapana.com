@@ -45,11 +45,11 @@
 
 <style>
 	.toc-sheet {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
-		height: 100%;
+		bottom: 0;
 		overflow-y: auto;
 		background: rgba(10, 5, 18, 0.78);
 		backdrop-filter: blur(28px) saturate(160%);
