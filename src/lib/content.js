@@ -22,3 +22,20 @@ export function getPageData(routeId) {
 
 	return data;
 }
+
+export function getAllArticles() {
+	return Object.entries(pages)
+		.filter(([path]) => /\/src\/routes\/\d{4}\/\d{2}\/[^/]+\/\+page\.svx$/.test(path))
+		.map(([path, mod]) => {
+			const raw = mod?.metadata ?? {};
+			const data = {};
+			for (const [k, v] of Object.entries(raw)) data[k.toLowerCase()] = v;
+			const url = path.replace('/src/routes', '').replace('/+page.svx', '');
+			return { title: data.title, published: data.published, path: url };
+		})
+		.filter((a) => {
+			if (!a.published) return false;
+			return new Date(a.published) <= new Date();
+		})
+		.sort((a, b) => new Date(b.published) - new Date(a.published));
+}
