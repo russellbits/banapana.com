@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamburger Menu — Glass Effect</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, serif;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    min-height: 100vh;
+  }
+
+  h1 {
+    color: rgba(255,255,255,0.5);
+    font-family: Inter, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* ---- SITE FRAME ---- */
+  .site-frame {
+    width: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 32px 100px rgba(0,0,0,0.7);
+    position: relative;
+  }
+
+  /* ---- COVER — rich editorial image simulation ---- */
+  .cover {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Simulated editorial photo background */
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(220,160,40,0.9) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 30%, rgba(80,30,120,0.95) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(180,60,40,0.8) 0%, transparent 45%),
+      radial-gradient(ellipse at 20% 20%, rgba(40,100,200,0.7) 0%, transparent 40%),
+      linear-gradient(160deg, #1a0830 0%, #3d1a5c 35%, #7b2d50 65%, #c43a20 100%);
+  }
+
+  /* Particle texture to make it feel photographic */
+  .cover-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(255,200,0,0.4) 0%, transparent 20%),
+      radial-gradient(circle at 85% 15%, rgba(100,200,255,0.3) 0%, transparent 15%),
+      radial-gradient(circle at 50% 50%, rgba(255,100,150,0.2) 0%, transparent 30%);
+  }
+
+  /* Gradient overlay on photo */
+  .cover-overlay-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .cover-title {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    padding: 0 5rem;
+    line-height: 1.3;
+  }
+
+  /* ---- PUBDATE (top-left) ---- */
+  .pubdate {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background-color: rgba(117, 250, 76, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .pubdate .day {
+    font: 36px 'Trebuchet MS', sans-serif;
+    color: white;
+    letter-spacing: -2px;
+    margin-top: -4px;
+    line-height: 1;
+  }
+
+  .pubdate .month {
+    font: 18px 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-top: -8px;
+    line-height: 1;
+  }
+
+  /* ---- HAMBURGER BUTTON (top-right) ---- */
+  .hamburger-btn {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    width: 54px;
+    height: 44px;
+    background: #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .hamburger-line {
+    width: 26px;
+    height: 3px;
+    background: rgba(117, 250, 76, 0.85);
+    border-radius: 2px;
+  }
+
+  /* ---- GLASS TOC SHEET ---- */
+  .toc-sheet {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    /* Glass effect: heavily blurred, semi-transparent dark */
+    background: rgba(10, 5, 18, 0.78);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    z-index: 20;
+    padding: 2.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Subtle inner border reinforces the glass look */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .toc-close {
+    position: absolute;
+    top: 1.4em;
+    right: 1.7em;
+    color: rgba(117, 250, 76, 0.75);
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', sans-serif;
+    line-height: 1;
+  }
+
+  .toc-heading {
+    color: rgba(255,255,255,0.55);
+    font-family: Inter, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toc-separator {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+    letter-spacing: 0.2em;
+    text-align: center;
+  }
+
+  .toc-item {
+    text-align: center;
+    padding: 0.65rem 1rem;
+  }
+
+  .toc-date {
+    font-size: 0.68rem;
+    font-family: Inter, sans-serif;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .toc-link {
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    border-bottom: 1px solid rgba(117, 250, 76, 0.3);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .toc-link:hover {
+    color: rgba(117, 250, 76, 0.95);
+    border-bottom-color: rgba(117, 250, 76, 0.65);
+  }
+
+  /* ---- PAGE CONTENT ---- */
+  .page-content {
+    background: #fafaf8;
+    padding: 2rem 1.5rem;
+    min-height: 100px;
+  }
+
+  .page-content p {
+    font-family: Georgia, serif;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #1a1a18;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>Hamburger Menu — Frosted Glass</h1>
+
+<div class="site-frame">
+  <div class="cover">
+    <!-- Simulated editorial cover image -->
+    <div class="cover-bg"></div>
+    <div class="cover-overlay-bottom"></div>
+
+    <div class="pubdate">
+      <div class="day">11</div>
+      <div class="month">MAR</div>
+    </div>
+
+    <div class="hamburger-btn">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+
+    <div class="cover-title">The Contentkeeper</div>
+
+    <!-- Glass TOC Sheet -->
+    <div class="toc-sheet">
+      <span class="toc-close">✕</span>
+      <div class="toc-heading">Table of Contents</div>
+      <ul class="toc-list">
+
+        <li class="toc-item">
+          <div class="toc-date">February 12, 2026</div>
+          <a class="toc-link" href="#">Unsubscribe Resist</a>
+        </li>
+
+        <li class="toc-separator">📧 🚫 ✊</li>
+
+        <li class="toc-item">
+          <div class="toc-date">January 27, 2026</div>
+          <a class="toc-link" href="#">The Contentkeeper</a>
+        </li>
+
+        <li class="toc-separator">🤖 📝 ✨</li>
+
+        <li class="toc-item">
+          <div class="toc-date">October 15, 2025</div>
+          <a class="toc-link" href="#">From Tulips to Transformers: A Brief History of Expensive Mistakes</a>
+        </li>
+
+        <li class="toc-separator">🌷 💰 🤖</li>
+
+        <li class="toc-item">
+          <div class="toc-date">May 3, 2025</div>
+          <a class="toc-link" href="#">Notes on Cognitive Liberty</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="page-content">
+    <p>An agent-driven content management system that syncs articles from an IA Writer cloud folder to Svelte routes, builds statically, and deploys via FTP…</p>
+  </div>
+</div>
+
+</body>
+</html>

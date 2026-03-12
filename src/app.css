@@ -1,0 +1,343 @@
+/* ============================================================
+   Fira Code — self-hosted (place font files in /static/fonts/)
+   ============================================================ */
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/FiraCode-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/FiraCode-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-display: swap;
+}
+
+/* ============================================================
+   Color System — CSS Custom Properties
+   ============================================================ */
+:root {
+	--color-bg: #fafaf8;
+	--color-surface: #ffffff;
+	--color-text: #1a1a18;
+	--color-heading: #0f0f0e;
+	--color-muted: #6b6b63;
+	--color-rule: #d4d4cc;
+	--color-accent: #2a5caa;
+	--color-accent-hover: #1a3f80;
+	--color-code-bg: #f0f0eb;
+	--color-code-border: #ddddd6;
+}
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--color-bg: #18181a;
+		--color-surface: #1e1e21;
+		--color-text: #e2e2dc;
+		--color-heading: #f0f0ea;
+		--color-muted: #8a8a82;
+		--color-rule: #2e2e32;
+		--color-accent: #7aaff0;
+		--color-accent-hover: #9dc4f5;
+		--color-code-bg: #242428;
+		--color-code-border: #38383e;
+	}
+}*/
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+	font-size: 18px;
+}
+body {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	font-weight: 400;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+}
+
+/* ============================================================
+   Article Container
+   ============================================================ */
+#page {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 2rem 1rem 4rem;
+	min-height: 100vh;
+}
+
+/* ============================================================
+   Paragraphs
+   ============================================================ */
+p {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	font-weight: 400;
+	text-indent: 1.4rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	hyphens: auto;
+	color: var(--color-text);
+}
+
+/* Lead paragraph */
+#page > p:first-of-type {
+	font-size: 1.2rem;
+	line-height: 1.78rem;
+}
+
+/* Drop cap */
+#page > p:first-of-type::first-letter {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	font-size: 3.9rem;
+	font-weight: 900;
+	line-height: 1;
+	float: left;
+	margin-right: 0.1em;
+	padding-top: 0.06em;
+	color: var(--color-accent);
+}
+
+/* ============================================================
+   Headings
+   ============================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	color: var(--color-heading);
+	margin-top: 2.4rem;
+	margin-bottom: 1.2rem;
+}
+h1 {
+	font-size: 2.986rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+h2 {
+	font-size: 1.953rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+h3 {
+	font-size: 1.953rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+h4 {
+	font-size: 1.563rem;
+	font-weight: 600;
+	line-height: 1.35;
+}
+h5 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.35;
+}
+h6 {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.35;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+/* ============================================================
+   Pull Quotes (blockquote)
+   ============================================================ */
+blockquote {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1.953rem;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 1.32;
+	margin: 2rem 0;
+	padding: 0 1.5rem;
+	border-left: 3px solid var(--color-accent);
+	color: var(--color-text);
+}
+blockquote cite {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	font-size: 0.833rem;
+	font-style: normal;
+	color: var(--color-muted);
+	display: block;
+	margin-top: 0.75rem;
+}
+
+/* ============================================================
+   Horizontal Rules
+   ============================================================ */
+hr {
+	border: none;
+	border-top: 1px solid var(--color-rule);
+	width: 35%;
+	margin: 2.75rem auto;
+}
+
+/* ============================================================
+   Lists
+   ============================================================ */
+ul,
+ol {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1rem;
+	line-height: 1.6rem;
+	padding-left: 1.75rem;
+	margin-top: 0;
+	margin-bottom: 1.375rem;
+}
+li {
+	margin-bottom: 0.4rem;
+}
+li > ul,
+li > ol {
+	font-size: 0.833rem;
+	padding-left: 1.25rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0;
+}
+
+/* ============================================================
+   Inline Text Styles
+   ============================================================ */
+strong {
+	font-weight: 700;
+}
+em {
+	font-style: italic;
+}
+code {
+	font-family: 'Fira Code', 'Courier New', Courier, monospace;
+	font-size: 0.9rem;
+	background-color: var(--color-code-bg);
+	padding: 0.1em 0.25em;
+	border-radius: 3px;
+	color: var(--color-text);
+}
+a {
+	color: var(--color-accent);
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+	text-underline-offset: 2px;
+}
+a:hover {
+	color: var(--color-accent-hover);
+	text-decoration-color: var(--color-accent-hover);
+}
+del {
+	text-decoration: line-through;
+}
+sup {
+	font-size: 0.75em;
+	vertical-align: super;
+}
+sub {
+	font-size: 0.75em;
+	vertical-align: sub;
+}
+
+/* ============================================================
+   Code Blocks
+   ============================================================ */
+pre {
+	font-family: 'Fira Code', 'Courier New', Courier, monospace;
+	font-size: 0.9rem;
+	line-height: 1.6;
+	background-color: var(--color-code-bg);
+	border: 1px solid var(--color-code-border);
+	border-radius: 5px;
+	padding: 1rem 1.25rem;
+	overflow-x: auto;
+	margin: 1.375rem 0;
+}
+pre code {
+	background: none;
+	padding: 0;
+	border-radius: 0;
+	font-size: inherit;
+}
+
+/* ============================================================
+   Images
+   ============================================================ */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	display: block;
+}
+figure {
+	margin: 1.375rem 0;
+}
+figcaption {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	font-size: 0.833rem;
+	color: var(--color-muted);
+	margin-top: 0.5rem;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+table {
+	width: 100%;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 0.9rem;
+	border-collapse: collapse;
+	display: block;
+	overflow-x: auto;
+	margin: 1.375rem 0;
+}
+th {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	font-size: 0.833rem;
+	font-weight: 600;
+	padding: 0.4rem 0.5rem;
+	border-bottom: 2px solid var(--color-rule);
+	text-align: left;
+	background-color: var(--color-surface);
+	color: var(--color-heading);
+}
+td {
+	padding: 0.4rem 0.5rem;
+	border-bottom: 1px solid var(--color-rule);
+}
+
+/* ============================================================
+   Small / Metadata / Captions
+   ============================================================ */
+small,
+.meta,
+.caption {
+	font-family: Inter, system-ui, -apple-system, sans-serif;
+	font-size: 0.833rem;
+	color: var(--color-muted);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 400px) {
+	h1 {
+		font-size: 2.441rem;
+	}
+	h2 {
+		font-size: 1.953rem;
+	}
+	blockquote {
+		font-size: 1.563rem;
+	}
+}

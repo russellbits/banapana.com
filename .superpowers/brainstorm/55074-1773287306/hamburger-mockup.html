@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamburger Menu Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, serif;
+    background: #1a1a18;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    min-height: 100vh;
+  }
+
+  h1 {
+    color: #fafaf8;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.4);
+    font-family: Inter, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  /* ---- SITE FRAME ---- */
+  .site-frame {
+    width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    position: relative;
+    background: #2a1a3a;
+  }
+
+  /* ---- COVER ---- */
+  .cover {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #3d1a5c 0%, #7b2d8b 40%, #c43a7a 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cover-title {
+    color: white;
+    font-family: 'Georgia', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-shadow: 0 0 30px rgba(255,255,255,0.3);
+    padding: 0 4rem;
+    line-height: 1.3;
+  }
+
+  /* ---- PUBDATE (existing component, top-left) ---- */
+  .pubdate {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background-color: rgba(117, 250, 76, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .pubdate .day {
+    font: 36px 'Trebuchet MS', sans-serif;
+    color: white;
+    letter-spacing: -2px;
+    margin-top: -4px;
+    line-height: 1;
+  }
+
+  .pubdate .month {
+    font: 18px 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-top: -8px;
+    line-height: 1;
+  }
+
+  /* ---- HAMBURGER BUTTON (new, top-right) ---- */
+  .hamburger-btn {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    width: 54px;
+    height: 44px;
+    background: #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    transition: opacity 0.15s;
+  }
+
+  .hamburger-btn:hover { opacity: 0.85; }
+
+  .hamburger-line {
+    width: 26px;
+    height: 3px;
+    background: rgba(117, 250, 76, 0.8);
+    border-radius: 2px;
+  }
+
+  /* ---- TOC SHEET ---- */
+  .toc-sheet {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: rgba(20, 10, 30, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 20;
+    padding: 2.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toc-close {
+    position: absolute;
+    top: 1.5em;
+    right: 1.8em;
+    color: rgba(117, 250, 76, 0.8);
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', sans-serif;
+    line-height: 1;
+  }
+
+  .toc-heading {
+    color: rgba(255,255,255,0.9);
+    font-family: Inter, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .toc-separator {
+    color: rgba(255,255,255,0.35);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+
+  .toc-item {
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+
+  .toc-date {
+    font-size: 0.72rem;
+    font-family: Inter, sans-serif;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+
+  .toc-link {
+    color: rgba(255,255,255,0.92);
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.3;
+    border-bottom: 1px solid rgba(117, 250, 76, 0.35);
+    padding-bottom: 1px;
+  }
+
+  .toc-link:hover {
+    color: rgba(117, 250, 76, 0.9);
+    border-bottom-color: rgba(117, 250, 76, 0.7);
+  }
+
+  /* ---- PAGE CONTENT ---- */
+  .page-content {
+    background: #fafaf8;
+    padding: 2rem 1.5rem;
+    min-height: 160px;
+  }
+
+  .page-content p {
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #1a1a18;
+  }
+
+  /* ---- DIVIDER ---- */
+  hr.mockup-rule {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    width: 100%;
+    max-width: 420px;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>Hamburger Menu — Mockup</h1>
+
+<!-- STATE 1: Closed -->
+<div class="label">① Button (closed state)</div>
+<div class="site-frame">
+  <div class="cover">
+    <div class="pubdate">
+      <div class="day">11</div>
+      <div class="month">MAR</div>
+    </div>
+    <div class="hamburger-btn" title="Open menu">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <div class="cover-title">The Contentkeeper</div>
+  </div>
+  <div class="page-content">
+    <p>An agent-driven content management system that syncs articles from an IA Writer cloud folder to Svelte routes, builds statically, and deploys via FTP…</p>
+  </div>
+</div>
+
+<hr class="mockup-rule">
+
+<!-- STATE 2: TOC Open -->
+<div class="label">② TOC sheet (open state)</div>
+<div class="site-frame">
+  <div class="cover">
+    <div class="pubdate">
+      <div class="day">11</div>
+      <div class="month">MAR</div>
+    </div>
+    <div class="hamburger-btn" title="Open menu">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <div class="cover-title">The Contentkeeper</div>
+
+    <!-- TOC Sheet overlaid -->
+    <div class="toc-sheet">
+      <span class="toc-close">✕</span>
+      <div class="toc-heading">Table of Contents</div>
+      <ul class="toc-list">
+
+        <li class="toc-item">
+          <div class="toc-date">February 12, 2026</div>
+          <a class="toc-link" href="#">Unsubscribe Resist</a>
+        </li>
+
+        <li class="toc-separator">📧 🚫 ✊</li>
+
+        <li class="toc-item">
+          <div class="toc-date">January 27, 2026</div>
+          <a class="toc-link" href="#">The Contentkeeper</a>
+        </li>
+
+        <li class="toc-separator">🤖 📝 ✨</li>
+
+        <li class="toc-item">
+          <div class="toc-date">October 15, 2025</div>
+          <a class="toc-link" href="#">From Tulips to Transformers: A Brief History of Expensive Mistakes</a>
+        </li>
+
+        <li class="toc-separator">🌷 💰 🤖</li>
+
+        <li class="toc-item">
+          <div class="toc-date">May 3, 2025</div>
+          <a class="toc-link" href="#">Notes on Cognitive Liberty</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <p>An agent-driven content management system that syncs articles from an IA Writer cloud folder to Svelte routes, builds statically, and deploys via FTP…</p>
+  </div>
+</div>
+
+</body>
+</html>
