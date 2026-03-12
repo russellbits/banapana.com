@@ -31,11 +31,13 @@ export function getAllArticles() {
 			const data = {};
 			for (const [k, v] of Object.entries(raw)) data[k.toLowerCase()] = v;
 			const url = path.replace('/src/routes', '').replace('/+page.svx', '');
-			return { title: data.title, published: data.published, path: url };
+			const effectiveDate = data.published || data.created;
+			return { title: data.title, published: effectiveDate, path: url };
 		})
 		.filter((a) => {
 			if (!a.published) return false;
-			return new Date(a.published) <= new Date();
+			const isPastDate = new Date(a.published) <= new Date();
+			return isPastDate;
 		})
 		.sort((a, b) => new Date(b.published) - new Date(a.published));
 }
