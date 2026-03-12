@@ -15,9 +15,8 @@
 		'🎲 🌙 ⚡',
 	];
 
-	function formatDate(dateStr) {
-		const [year, month, day] = dateStr.split('-').map(Number);
-		const d = new Date(year, month - 1, day);
+	function formatDate(date) {
+		const d = date instanceof Date ? date : new Date(date);
 		return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 	}
 </script>

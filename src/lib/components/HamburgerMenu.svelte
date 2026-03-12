@@ -33,7 +33,7 @@
 		justify-content: center;
 		gap: 7px;
 		cursor: pointer;
-		z-index: 10;
+		z-index: 30;
 		padding: 0;
 	}
 
