@@ -34,7 +34,7 @@
 		{#each articles as article, i}
 			<li class="item">
 				<p class="date">{formatDate(article.published)}</p>
-				<a href={article.path}>{article.title}</a>
+				<a href={article.path} on:click={() => dispatch('close')}>{article.title}</a>
 			</li>
 			{#if i < articles.length - 1}
 				<li class="separator" aria-hidden="true">{SEPARATORS[i % SEPARATORS.length]}</li>
