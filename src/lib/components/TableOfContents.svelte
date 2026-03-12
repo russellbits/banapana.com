@@ -49,7 +49,8 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		height: fit-content;
+		height: 100%;
+		overflow-y: auto;
 		background: rgba(10, 5, 18, 0.78);
 		backdrop-filter: blur(28px) saturate(160%);
 		-webkit-backdrop-filter: blur(28px) saturate(160%);
@@ -68,9 +69,9 @@
 	}
 
 	.close {
-		position: absolute;
-		top: 1.4em;
-		right: 1.7em;
+		position: sticky;
+		top: 0;
+		align-self: flex-end;
 		background: none;
 		border: none;
 		color: rgba(117, 250, 76, 0.75);
@@ -78,6 +79,7 @@
 		cursor: pointer;
 		line-height: 1;
 		padding: 0;
+		z-index: 1;
 	}
 
 	.heading {
