@@ -249,6 +249,7 @@
 		.title {
 			font-size: 48px;
 			letter-spacing: 2px;
+			padding: 0 1em;
 		}
 		.particles {
 			display: none;
@@ -258,6 +259,7 @@
 	@media (max-width: 480px) {
 		.title {
 			font-size: 32px;
+			padding: 0 1em;
 		}
 	}
 </style>

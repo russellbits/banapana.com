@@ -30,7 +30,7 @@
 <style>
 .date-button-container {
   position: relative;
-  margin: 2em;
+  margin: 0;
 }
 
 /* .date-button-border {
@@ -67,5 +67,19 @@
   margin-top: -8px;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .date-button {
+    width: 48px;
+    height: 48px;
+  }
+  .day {
+    font-size: 26px;
+  }
+  .month {
+    font-size: 13px;
+    margin-top: -6px;
+  }
 }
 </style>

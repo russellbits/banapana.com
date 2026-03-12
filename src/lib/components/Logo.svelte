@@ -7,7 +7,7 @@
 
 <style>
 	.logo img {
-		width: 320px;
+		width: clamp(160px, 45vw, 320px);
 		height: auto;
 		margin: 2rem auto;
 	}
