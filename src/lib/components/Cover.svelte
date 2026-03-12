@@ -231,7 +231,7 @@
 
 	.title {
 		font-family: 'Roboto Slab', serif;
-		font-size: clamp(48px, 10vw, 120px);
+		font-size: clamp(38px, 8vw, 96px);
 		font-weight: 900;
 		color: #fff;
 		text-transform: uppercase;
@@ -247,7 +247,7 @@
 
 	@media (max-width: 768px) {
 		.title {
-			font-size: 48px;
+			font-size: 38px;
 			letter-spacing: 2px;
 			padding: 0 1em;
 		}
@@ -258,7 +258,7 @@
 
 	@media (max-width: 480px) {
 		.title {
-			font-size: 32px;
+			font-size: 26px;
 			padding: 0 1em;
 		}
 	}

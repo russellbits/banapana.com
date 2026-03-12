@@ -9,6 +9,6 @@
 	.logo img {
 		width: clamp(160px, 45vw, 320px);
 		height: auto;
-		margin: 2rem auto;
+		margin: 5rem auto 2rem;
 	}
 </style>
