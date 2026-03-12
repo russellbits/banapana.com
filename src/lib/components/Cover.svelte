@@ -1,9 +1,14 @@
 <script>
 	import PubDate from './PubDate.svelte';
 	import Logo from './Logo.svelte';
+	import HamburgerMenu from './HamburgerMenu.svelte';
+	import TableOfContents from './TableOfContents.svelte';
 
 	export let title = '';
-	export let cover_img_url ='media/cover.jpg'
+	export let cover_img_url = 'media/cover.jpg';
+	export let articles = [];
+
+	let tocOpen = false;
 </script>
 
 <div class="cover">
@@ -16,6 +21,8 @@
 	<div class="pubdate-wrapper">
 		<PubDate />
 	</div>
+	<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
+	<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
 	<div class="content">
 		<Logo />
 		<h1 class="title">{title}</h1>
