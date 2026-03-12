@@ -1,12 +1,11 @@
 export const prerender = true;
 
+const pages = import.meta.glob('/src/routes/*/*/*/*/+page.svx');
+
 export function entries() {
-	return [
-		{ year: '2026', month: '01', slug: 'the-contentkeeper' },
-		{
-			year: '2025',
-			month: '10',
-			slug: 'from-tulips-to-transformers-a-brief-history-of-expensive-mistakes'
-		}
-	];
+	return Object.keys(pages)
+		.map((path) => {
+			const [, , , year, month, slug] = path.split('/');
+			return { year, month, slug };
+		});
 }
