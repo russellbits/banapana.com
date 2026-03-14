@@ -1,10 +1,11 @@
 ---
-Title: ‘Doomtubers’
-Subtitle: ‘Broadcast Cult’
+Title: Doomtubers
+Subtitle: Broadcast Cult
 Author: R. E. Warner
-Cover: media/cover.jpg
 Summary: "A Beijing educator's viral doomsday predictions expose something older than YouTube: the platform's incentive structure doesn't just host apocalyptic thinking—it breeds it, stripping away academic accountability while preserving every signal that made the whiteboard trustworthy."
-Tags: "doomtubers, media-criticism, epistemology, youtube, cognitive-sovereignty"
+Section: Mind Control
+Column: Scamtube
+Tags: [doomtubers, media-criticism, epistemology, youtube, cognitive-sovereignty]
 Created: 2025-03-12
 Modified: 2025-03-12
 Status: published
@@ -20,13 +21,18 @@ There's a man in Beijing with a whiteboard who knows exactly how civilization en
 
 He'll tell you about it in a measured, academic tone—the kind that implies he has tenure somewhere important (he teaches at a progressive high school, but details). He'll draw arrows between historical events. He'll invoke game theory, Asimov, the Sicilian Expedition. He graduated from Yale. He's published. He has a Harvard affiliation. The whiteboard is spotless.
 
-His name is Jiang Xueqin, he runs a YouTube channel called [Predictive History](https://www.youtube.com/@PredictiveHistory), and in May 2024 he recorded a classroom lecture predicting that Donald Trump would win the election and drag America into a catastrophic war with Iran. When those things started happening, the lecture went from a few hundred views to a hundred thousand subscribers in three days. The internet crowned him "China's Nostradamus." *Newsweek* wrote him up. He went viral in the most literal sense—something inert suddenly replicating everywhere.
+His name is Jiang Xueqin, he runs a YouTube channel called [Predictive History](https://www.youtube.com/@PredictiveHistory), and in May 2024 he recorded a classroom lecture predicting that Donald Trump would win the election and drag America into a catastrophic war with Iran. When those things started happening, the lecture went from a few hundred views to a hundred thousand subscribers in three days. The internet crowned him "[China's Nostradamus](https://www.ladbible.com/community/chinese-nostradamus-2026-predictions-us-iran-war-216249-20260313)." *Newsweek* wrote him up. He went viral in the most literal sense—something inert suddenly replicating everywhere.
 
 The whiteboard did a lot of work in that lecture. It's the visual grammar of legitimate pedagogy—*this is a classroom, I am a teacher, what follows is knowledge.* Combined with the Yale credential, the measured delivery, the invocation of psychohistory (Isaac Asimov's fictional mathematical science of mass human behavior), and a framework that sounds rigorous without being falsifiable, you get something that looks indistinguishable from genuine insight. The epistemic costume is perfect.
 
 Here's the thing: it's a costume.
 
 # The Model That Isn't
+
+[SIDEBAR]
+title: "What Makes a Real Model?"
+content: "A model has formal structure—parameters, math, and a mechanism that generates specific predictions you can be wrong about in advance. Visualization without falsifiability is storytelling."
+[/SIDEBAR]
 
 When Jiang refers to his charts as "models," something important collapses quietly and nobody notices. A chart showing historical patterns is a visualization. It can *illustrate* a hypothesis. But a model has formal structure—parameters, math, a mechanism that generates specific predictions you can be *wrong about in advance.* Asimov's fictional psychohistory worked precisely because Hari Seldon could calculate probabilities on specific outcomes with quantified uncertainty. What Jiang does is the opposite: he uses the *aesthetic* of rigorous prediction—game theory vocabulary, historical pattern-matching, structural analysis—without the formal machinery that would make any of it testable.
 
