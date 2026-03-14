@@ -69,9 +69,9 @@
 
 	@media (max-width: 900px) {
 		.sidebar {
-			float: none;
-			width: 100%;
-			margin: 1rem 0;
+			float: none !important;
+			width: 100% !important;
+			margin: 1rem 0 !important;
 		}
 	}
 </style>
