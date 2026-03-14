@@ -66,10 +66,17 @@ body {
    Article Container
    ============================================================ */
 #page {
-	max-width: 700px;
+	max-width: 1200px;
 	margin: 0 auto;
-	padding: 2rem 1rem 4rem;
+	padding: 2rem 80px 4rem;
 	min-height: 100vh;
+	display: flow-root;
+}
+
+@media (max-width: 900px) {
+	#page {
+		padding: 2rem 1rem 4rem;
+	}
 }
 
 /* ============================================================
