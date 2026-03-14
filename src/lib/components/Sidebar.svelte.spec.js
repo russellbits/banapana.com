@@ -29,4 +29,28 @@ describe('Sidebar', () => {
 		const { container } = render(Sidebar, { title: 'T', content: 'C' });
 		await expect.element(page.elementLocator(container.querySelector('.sidebar'))).toBeInTheDocument();
 	});
+
+	it('floats right by default', async () => {
+		const { container } = render(Sidebar, { title: 'T', content: 'C' });
+		const aside = container.querySelector('.sidebar');
+		await expect.element(page.elementLocator(aside)).toHaveStyle('float: right');
+	});
+
+	it('floats left when side="left"', async () => {
+		const { container } = render(Sidebar, { title: 'T', content: 'C', side: 'left' });
+		const aside = container.querySelector('.sidebar');
+		await expect.element(page.elementLocator(aside)).toHaveStyle('float: left');
+	});
+
+	it('applies negative right margin when floating right', async () => {
+		const { container } = render(Sidebar, { title: 'T', content: 'C', side: 'right' });
+		const aside = container.querySelector('.sidebar');
+		await expect.element(page.elementLocator(aside)).toHaveStyle('margin-right: -0.5rem');
+	});
+
+	it('applies negative left margin when floating left', async () => {
+		const { container } = render(Sidebar, { title: 'T', content: 'C', side: 'left' });
+		const aside = container.querySelector('.sidebar');
+		await expect.element(page.elementLocator(aside)).toHaveStyle('margin-left: -0.5rem');
+	});
 });

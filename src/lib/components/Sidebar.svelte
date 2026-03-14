@@ -1,8 +1,14 @@
 <script>
-	let { title = '', content = '' } = $props();
+	let { title = '', content = '', side = 'right' } = $props();
 </script>
 
-<aside class="sidebar">
+<aside class="sidebar" style="
+	float: {side};
+	width: 45%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	{side === 'right' ? 'margin-right: -0.5rem; margin-left: 1rem;' : 'margin-left: -0.5rem; margin-right: 1rem;'}
+">
 	<img
 		class="lightbulb"
 		src="/symbols/light-bulb.svg"
@@ -20,7 +26,6 @@
 		background-color: var(--section-color, #5ec035);
 		border-radius: 8px;
 		padding: 1.5rem;
-		margin: 2rem 0;
 		color: #fff;
 		overflow: hidden;
 	}
@@ -60,5 +65,13 @@
 
 	.sidebar-content :global(a) {
 		color: rgba(255, 255, 255, 0.9);
+	}
+
+	@media (max-width: 900px) {
+		.sidebar {
+			float: none;
+			width: 100%;
+			margin: 1rem 0;
+		}
 	}
 </style>
