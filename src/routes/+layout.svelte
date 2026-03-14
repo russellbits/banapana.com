@@ -3,7 +3,7 @@
 	import Cover from '$lib/components/Cover.svelte';
 	import SectionTab from '$lib/components/SectionTab.svelte';
 	import { getAllArticles } from '$lib/content.js';
-	import { getSection } from '$lib/sections.js';
+	import { getSection, slugRotation } from '$lib/sections.js';
 	import { page } from '$app/stores';
 	import '../app.css';
 	import rootCover from './media/cover.jpg?url';
@@ -14,6 +14,7 @@
 	const cover = $derived($page.data?.cover ?? rootCover);
 	const section = $derived($page.data?.section ?? '');
 	const sectionData = $derived(section ? getSection(section) : null);
+	const rotation = $derived(slugRotation($page.url.pathname));
 	const articles = getAllArticles();
 </script>
 
@@ -26,7 +27,7 @@
 {/if}
 
 {#if section}
-	<SectionTab {section} />
+	<SectionTab {section} {rotation} />
 {/if}
 
 <div id="page" style={sectionData ? `--section-color: ${sectionData.color}` : ''}>
