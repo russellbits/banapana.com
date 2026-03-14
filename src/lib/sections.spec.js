@@ -20,7 +20,7 @@ describe('slugRotation', () => {
 	});
 
 	it('returns different values for different inputs', () => {
-		// Pre-verified: these two slugs produce different hash values
+		// Pre-verified: doomtubers → 1, tulips-to-transformers → 4
 		const a = slugRotation('/2026/03/doomtubers');
 		const b = slugRotation('/2025/10/from-tulips-to-transformers-a-brief-history-of-expensive-mistakes');
 		expect(a).not.toBe(b);
