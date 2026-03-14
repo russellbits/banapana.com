@@ -22,8 +22,9 @@ Floated elements (sidebars, images) use CSS `float: right` (odd occurrences) or 
 
 - Width: ~45% of the container
 - Vertical margin: 1rem top/bottom
-- Horizontal margin on the float side: `-0.5rem` (nudges element slightly past the container edge toward the page boundary)
-- `clear` is not applied globally — elements wrap naturally around floats
+- `float: right` elements: `margin-right: -0.5rem` (nudges past right container edge)
+- `float: left` elements: `margin-left: -0.5rem` (nudges past left container edge)
+- No `clear` is applied globally — elements wrap naturally around floats
 
 The "4-column" conceptual model maps to: body text occupying the full width, floated elements occupying ~half that width and positioned in the left or right gutter. CSS Grid is not used for the prose layout because CSS Grid does not support text-wrapping around grid items; CSS floats are the correct primitive here.
 
@@ -35,16 +36,17 @@ The existing `preprocessSidebar` in `src/lib/preprocess-sidebar.js` is extended 
 
 **Counter logic:**
 - Counter starts at 0 for each file
-- Odd counter value (0, 2, 4…) → `side="right"`
-- Even counter value (1, 3, 5…) → `side="left"`
+- `counter % 2 === 0` → `side="right"` (1st, 3rd, 5th element…)
+- `counter % 2 === 1` → `side="left"` (2nd, 4th, 6th element…)
 - Counter increments after each floatable element is encountered
+- No `clear` is applied on floated elements — they stack naturally
 
 **`[SIDEBAR]` blocks:**
 - Current behavior: replaced with `<Sidebar title="..." content="..." />`
 - New behavior: replaced with `<Sidebar title="..." content="..." side="right|left" />`
 
 **Markdown images:**
-- Pattern: `![alt](src)` (standard markdown image syntax in the markup phase, before mdsvex processes it)
+- Pattern: `![alt](src)` — the custom preprocessor runs before mdsvex (order in `svelte.config.js`: `[preprocessSidebar(), mdsvex(...)]`), so it sees raw markdown syntax, not yet-converted `<img>` tags
 - Preprocessor wraps with `<FloatImage src="..." alt="..." side="right|left" />`
 - The preprocessor also injects the `FloatImage` import alongside the existing `Sidebar` import
 
@@ -72,16 +74,16 @@ The existing `preprocessSidebar` in `src/lib/preprocess-sidebar.js` is extended 
 Fix: remove the blank line. One-line edit.
 
 **3b. TOC article count**
-`getAllArticles()` filters by date ≤ today. All 6 articles have past dates, so logic is correct. The likely cause is Vite's `import.meta.glob` not hot-reloading the `src/routes/2023/` directory added while the dev server was running. Fix: restart the dev server and verify count. If still wrong, audit the glob pattern and date filter in `src/lib/content.js`.
+`getAllArticles()` filters by date ≤ today. All 6 articles have past dates, so logic is correct. The likely cause is Vite's `import.meta.glob` not hot-reloading the `src/routes/2023/` directory added while the dev server was running. This is a diagnostic/operational fix — no code change is planned. Verify count after dev server restart. If still wrong, audit the glob pattern and date filter in `src/lib/content.js` as a follow-up task.
 
 **3c. Dev server content watcher**
-Add a `dev:full` npm script to `package.json`:
+`scripts/sync-content.js` already exists. Add a `dev:full` npm script to `package.json`:
 
 ```
 "dev:full": "node scripts/sync-content.js && vite dev"
 ```
 
-Additionally, add a file watcher inside `scripts/sync-content.js` (or a companion `scripts/watch-content.js`) using Node's built-in `fs.watch` on the `./content` directory that re-runs sync on any file change. This keeps `npm run dev` unchanged for users who don't need content sync.
+Additionally, create a new `scripts/watch-content.js` using Node's built-in `fs.watch` on the `./content` directory that re-runs `sync-content.js` on any file change, then starts Vite dev server. The `dev:full` script calls this watcher script. This keeps `npm run dev` unchanged for users who don't need content sync.
 
 ---
 
@@ -101,15 +103,20 @@ function slugRotation(str) {
 }
 ```
 
-In `+layout.svelte`:
+In `+layout.svelte`, `$page` is already imported from `'$app/stores'` and used with `$derived` (e.g. `const title = $derived($page.data?.title ?? '')`). The rotation follows the same pattern:
 ```js
 const rotation = $derived(slugRotation($page.url.pathname));
 ```
 
-`SectionTab.svelte` gains a `rotation` prop (number, default `0`) and applies it as an inline style:
-```svelte
-style="transform: rotate({rotation}deg)"
-```
+`SectionTab.svelte` gains a `rotation` prop (number, default `0`) and applies it as an inline style. The desktop CSS already applies `transform: translateY(-50%)` for vertical centering — the inline style must compose both transforms to avoid the inline style overriding the CSS rule:
+
+- Desktop: `style="transform: translateY(-50%) rotate({rotation}deg)"`
+- Mobile: The tab is in static flow (no `translateY`), so: `style="transform: rotate({rotation}deg)"`
+
+In practice, set the inline style to always include both transforms and let the media query control whether `translateY` visually matters, or pass the full transform string as a derived value based on viewport. Simplest approach: always emit `style="transform: translateY(-50%) rotate({rotation}deg)"` and override `transform` in the mobile media query to `rotate({rotation}deg)` — but since the rotation value is dynamic, the mobile override needs a CSS custom property:
+
+- Set `style="--rotation: {rotation}deg"` on the element
+- CSS handles: desktop `.section-tab { transform: translateY(-50%) rotate(var(--rotation)); }`, mobile `{ transform: rotate(var(--rotation)); }`
 
 The rotation is baked into prerendered HTML — no `onMount` or client-side randomness needed.
 
@@ -127,4 +134,4 @@ The rotation is baked into prerendered HTML — no `onMount` or client-side rand
 | `src/routes/+layout.svelte` | Compute `rotation` from slug, pass to SectionTab |
 | `src/routes/2023/12/le-grande-bibliotheque.../+page.svx` | Remove blank line in frontmatter |
 | `package.json` | Add `dev:full` script |
-| `scripts/sync-content.js` or new `scripts/watch-content.js` | Add file watcher |
+| `scripts/watch-content.js` (new) | File watcher that re-runs sync and starts Vite |
