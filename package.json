@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev --host --port 2222",
+		"dev:full": "node scripts/watch-content.js",
 		"build": "vite build && node scripts/generate-sitemap.js && node scripts/generate-rss.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
