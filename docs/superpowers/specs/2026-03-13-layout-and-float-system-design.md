@@ -168,7 +168,7 @@ export function slugRotation(str) {
 ```
 
 **In `+layout.svelte`:**
-`page` is imported from `'$app/stores'` and auto-subscribed as `$page`. The rotation is derived reactively using the existing store subscription pattern:
+`page` is imported from `'$app/stores'` and auto-subscribed as `$page`. The project already mixes Svelte 4 store auto-subscriptions with Svelte 5 `$derived` runes — this is validated working (see existing `const title = $derived($page.data?.title ?? '')` on line 13). The rotation follows the same pattern:
 ```js
 import { slugRotation } from '$lib/sections.js';
 const rotation = $derived(slugRotation($page.url.pathname));
