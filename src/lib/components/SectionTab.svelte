@@ -1,13 +1,13 @@
 <script>
 	import { getSection } from '$lib/sections.js';
 
-	let { section = '' } = $props();
+	let { section = '', rotation = 0 } = $props();
 
 	const sectionData = $derived(getSection(section));
 </script>
 
 {#if sectionData.svgFile}
-	<div class="section-tab" style="background-color: {sectionData.color}">
+	<div class="section-tab" style="background-color: {sectionData.color}; --rotation: {rotation}deg">
 		<div class="icon-circle">
 			<img
 				src="/symbols/{sectionData.svgFile}.svg"
@@ -35,6 +35,7 @@
 		margin: 1.5rem auto;
 		gap: 0.3rem;
 		text-align: center;
+		transform: rotate(var(--rotation, 0deg));
 	}
 
 	.icon-circle {
@@ -79,7 +80,7 @@
 			position: fixed;
 			left: max(0.5rem, calc(50vw - 420px));
 			top: 50%;
-			transform: translateY(-50%);
+			transform: translateY(-50%) rotate(var(--rotation, 0deg));
 			z-index: 5;
 			width: 72px;
 			height: auto;

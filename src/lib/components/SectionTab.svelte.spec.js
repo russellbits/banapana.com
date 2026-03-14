@@ -31,4 +31,16 @@ describe('SectionTab', () => {
 		const tab = container.querySelector('.section-tab');
 		await expect.element(page.elementLocator(tab)).toHaveStyle('background-color: rgb(224, 66, 224)');
 	});
+
+	it('applies rotation via --rotation CSS custom property', async () => {
+		const { container } = render(SectionTab, { section: 'Mind Control', rotation: 3 });
+		const tab = container.querySelector('.section-tab');
+		await expect.element(page.elementLocator(tab)).toHaveStyle('--rotation: 3deg');
+	});
+
+	it('defaults to 0deg rotation when no rotation prop given', async () => {
+		const { container } = render(SectionTab, { section: 'Mind Control' });
+		const tab = container.querySelector('.section-tab');
+		await expect.element(page.elementLocator(tab)).toHaveStyle('--rotation: 0deg');
+	});
 });
