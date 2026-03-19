@@ -1,5 +1,5 @@
 <script>
-	let { author, wordCount, date } = $props();
+	let { author = '', wordCount = 0, date = '' } = $props();
 
 	function slugify(name) {
 		return name
