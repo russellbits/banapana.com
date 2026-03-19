@@ -1,13 +1,24 @@
 const pages = import.meta.glob('/src/routes/**/*.svx', { eager: true });
 
+const rawPages = import.meta.glob('/src/routes/**/*.svx', {
+	query: '?raw',
+	import: 'default',
+	eager: true
+});
+
 const covers = import.meta.glob('/src/routes/**/media/cover.{jpg,png,webp}', {
 	eager: true,
 	query: '?url',
 	import: 'default'
 });
 
-export function getPageData(routeId) {
-	const routePath = routeId === '/' ? '/src/routes' : `/src/routes${routeId}`;
+export function countWords(rawText) {
+	const body = rawText.replace(/^---[\s\S]*?---\n/, '');
+	return body.split(/\s+/).filter(Boolean).length;
+}
+
+export function getPageData(pathname) {
+	const routePath = pathname === '/' ? '/src/routes' : `/src/routes${pathname}`;
 
 	const raw = pages[`${routePath}/+page.svx`]?.metadata ?? {};
 	const cover = covers[`${routePath}/media/cover.jpg`]
@@ -19,6 +30,9 @@ export function getPageData(routeId) {
 		data[key.toLowerCase()] = val;
 	}
 	if (cover) data.cover = cover;
+
+	const rawText = rawPages[`${routePath}/+page.svx`] ?? '';
+	data.wordCount = countWords(rawText);
 
 	return data;
 }
