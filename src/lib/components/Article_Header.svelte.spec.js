@@ -24,6 +24,15 @@ describe('Article_Header', () => {
     );
   });
 
+  it('slugifies dots to hyphens (R.E. Warner → r-e-warner)', async () => {
+    const { container } = render(ArticleHeader, { ...defaults, author: 'R.E. Warner' });
+    const img = container.querySelector('img.avatar');
+    await expect.element(page.elementLocator(img)).toHaveAttribute(
+      'src',
+      '/images/authors/r-e-warner.png'
+    );
+  });
+
   it('renders the read time based on wordCount', async () => {
     render(ArticleHeader, defaults);
     // 480 words / 240 wpm = 2 min read
