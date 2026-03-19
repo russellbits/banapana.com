@@ -7,7 +7,7 @@
 	import { getSection, slugRotation } from '$lib/sections.js';
 	import { page } from '$app/stores';
 	import '../app.css';
-	import rootCover from './media/cover.jpg?url';
+	const rootCover = '/images/cover-generic.jpg';
 
 	let { children } = $props();
 
