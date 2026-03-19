@@ -1,14 +1,15 @@
 ---
-Title: Doomtubers
-Subtitle: Broadcast Cult
-Author: R. E. Warner
+Title: "Doomtubers"
+Subtitle: "Broadcast Cult"
+Author: "R. E. Warner"
 Summary: "A Beijing educator's viral doomsday predictions expose something older than YouTube: the platform's incentive structure doesn't just host apocalyptic thinking—it breeds it, stripping away academic accountability while preserving every signal that made the whiteboard trustworthy."
-Section: Mind Control
-Column: Scamtube
-Tags: [doomtubers, media-criticism, epistemology, youtube, cognitive-sovereignty]
-Created: 2025-03-12
-Modified: 2025-03-12
-Status: published
+Section: "Mind Control"
+Column: "Scamtube"
+Tags: "#doomtubers, #media_criticism, #epistemology, #youtube, #cognitive_sovereignty"
+Created: "2025-03-12"
+Modified: "2026-03-19"
+Published: "2026-03-19"
+Status: "published"
 ---
 
 ![Let us tell you something the government/doctors/illuminati *don’t* want you to know!](./media/cover.jpg)

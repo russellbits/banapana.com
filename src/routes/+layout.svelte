@@ -1,5 +1,6 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
+	import ArticleHeader from '$lib/components/Article_Header.svelte';
 	import Cover from '$lib/components/Cover.svelte';
 	import SectionTab from '$lib/components/SectionTab.svelte';
 	import { getAllArticles } from '$lib/content.js';
@@ -16,6 +17,9 @@
 	const sectionData = $derived(section ? getSection(section) : null);
 	const rotation = $derived(slugRotation($page.url.pathname));
 	const articles = getAllArticles();
+	const author = $derived($page.data?.author ?? '');
+	const wordCount = $derived($page.data?.wordcount ?? 0);
+	const date = $derived($page.data?.published ?? $page.data?.created ?? '');
 </script>
 
 <svelte:head>
@@ -24,6 +28,10 @@
 
 {#if title}
 	<Cover {title} cover_img_url={cover} {articles} />
+{/if}
+
+{#if author}
+	<ArticleHeader {author} {wordCount} {date} />
 {/if}
 
 {#if section}
