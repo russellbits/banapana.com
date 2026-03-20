@@ -27,7 +27,8 @@ export function getPageData(pathname) {
 
 	const data = {};
 	for (const [key, val] of Object.entries(raw)) {
-		data[key.toLowerCase()] = val instanceof Date ? val.toISOString().slice(0, 10) : val;
+		const str = val instanceof Date ? val.toISOString() : val;
+		data[key.toLowerCase()] = typeof str === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(str) ? str.slice(0, 10) : str;
 	}
 	if (cover) data.cover = cover;
 
