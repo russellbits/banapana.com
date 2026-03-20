@@ -11,7 +11,7 @@
 </script>
 
 <Story name="Fabertising" args={{ section: 'Fabertising', rotation: 0 }} />
-<Story name="TheyreThinking" args={{ section: "They're Thinking", rotation: 0 }} />
+<Story name="ItsThinking" args={{ section: "It's Thinking", rotation: 0 }} />
 <Story name="MindControl" args={{ section: 'Mind Control', rotation: 0 }} />
 <Story name="MadeYouLook" args={{ section: 'Made You Look', rotation: 0 }} />
 <Story name="DesignScience" args={{ section: 'Design Science', rotation: 0 }} />

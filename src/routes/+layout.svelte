@@ -34,7 +34,7 @@
 {/if}
 
 {#if author}
-	<ArticleHeader {author} {wordCount} {date} />
+	<ArticleHeader {author} {wordCount} {date} {section} />
 {/if}
 
 {#if section}
