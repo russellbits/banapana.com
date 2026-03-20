@@ -298,7 +298,7 @@
 		position: absolute;
 		bottom: 0;
 		right: clamp(16px, 4vw, 60px);
-		transform: translateY(50%);
+		transform: translateY(50%) rotate(-4deg);
 		width: clamp(50px, calc(100vw / 6), 200px);
 		height: auto;
 		z-index: 20;

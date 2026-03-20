@@ -55,7 +55,7 @@
 <style>
 	.article-header-outer {
 		max-width: 1000px;
-		margin: 0 auto;
+		margin: 1rem auto 0;
 		padding: 0 80px;
 	}
 
