@@ -7,30 +7,48 @@
 	export let title = '';
 	export let cover_img_url = 'media/cover.jpg';
 	export let articles = [];
+	export let column = '';
+	export let isHome = false;
 
 	let tocOpen = false;
+
+	function slugifyColumn(name) {
+		return name
+			.toLowerCase()
+			.replace(/[^a-z0-9 -]/g, '-')
+			.replace(/ +/g, '-')
+			.replace(/-{2,}/g, '-')
+			.replace(/^the-/, '');
+	}
+
+	$: badgeSlug = column && column !== '--' ? slugifyColumn(column) : '';
+	$: badgeSrc = badgeSlug ? `/images/column-badges/${badgeSlug}.png` : '';
 </script>
 
-<div class="cover">
-	<div class="bg-layer" style="--cover-url: url('{cover_img_url}')"></div>
-	<div class="gradient-overlay"></div>
-	<div class="particles">
-		<span></span><span></span><span></span><span></span><span></span>
-		<span></span><span></span><span></span><span></span><span></span>
+<div class="cover-wrapper">
+	<div class="cover">
+		<div class="bg-layer" style="--cover-url: url('{cover_img_url}')"></div>
+		<div class="gradient-overlay"></div>
+		<div class="particles">
+			<span></span><span></span><span></span><span></span><span></span>
+			<span></span><span></span><span></span><span></span><span></span>
+		</div>
+		<div class="pubdate-wrapper">
+			<PubDate />
+		</div>
+		<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
+		<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
+		<div class="content">
+			<Logo href={isHome ? null : '/'} />
+			<h1 class="title">{title}</h1>
+		</div>
 	</div>
-	<div class="pubdate-wrapper">
-		<PubDate />
-	</div>
-	<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
-	<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
-	<div class="content">
-		<Logo />
-		<h1 class="title">{title}</h1>
-	</div>
+	{#if badgeSrc}
+		<img class="column-badge" src={badgeSrc} alt={column} />
+	{/if}
 </div>
 
 <style>
-/*
 	@keyframes gradientShift {
 		0% {
 			background-position: 0% 50%;
@@ -91,7 +109,7 @@
 				4px 4px 8px rgba(0, 0, 0, 0.8);
 		}
 	}
-*/
+
 	@font-face {
 		font-family: 'Roboto Slab';
 		src: url('/fonts/RobotoSlab-VariableFont.woff2') format('woff2');
@@ -224,7 +242,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 		width: 100%;
 		height: 100%;
 	}
@@ -262,4 +280,19 @@
 			padding: 0 1em;
 		}
 	}
+
+	.cover-wrapper {
+		position: relative;
+	}
+
+	.column-badge {
+		position: absolute;
+		bottom: 0;
+		right: clamp(16px, 4vw, 60px);
+		transform: translateY(50%);
+		width: clamp(100px, calc(100vw / 3), 400px);
+		height: auto;
+		z-index: 20;
+	}
+
 </style>

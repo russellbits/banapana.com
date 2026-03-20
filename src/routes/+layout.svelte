@@ -21,6 +21,8 @@
 	const author = $derived($page.data?.author ?? '');
 	const wordCount = $derived($page.data?.wordcount ?? 0);
 	const date = $derived($page.data?.published ?? $page.data?.created ?? '');
+	const column = $derived($page.data?.column ?? '');
+	const isHome = $derived($page.url.pathname === '/');
 </script>
 
 <svelte:head>
@@ -28,7 +30,7 @@
 </svelte:head>
 
 {#if title}
-	<Cover {title} cover_img_url={cover} {articles} />
+	<Cover {title} cover_img_url={cover} {articles} {column} {isHome} />
 {/if}
 
 {#if author}
