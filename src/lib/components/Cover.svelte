@@ -39,7 +39,11 @@
 		<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
 		<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
 		<div class="content">
-			<Logo href={isHome ? null : '/'} />
+			{#if isHome}
+				<Logo />
+			{:else}
+				<a href="/" class="logo-link"><Logo /></a>
+			{/if}
 			<h1 class="title">{title}</h1>
 		</div>
 	</div>
@@ -285,12 +289,17 @@
 		position: relative;
 	}
 
+	.logo-link {
+		display: block;
+		line-height: 0;
+	}
+
 	.column-badge {
 		position: absolute;
 		bottom: 0;
 		right: clamp(16px, 4vw, 60px);
 		transform: translateY(50%);
-		width: clamp(100px, calc(100vw / 3), 400px);
+		width: clamp(50px, calc(100vw / 6), 200px);
 		height: auto;
 		z-index: 20;
 	}
