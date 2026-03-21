@@ -20,6 +20,7 @@
 
 <style>
   nav {
+    display: flex;
     background: #000;
     height: 85px;
     width: 100%;
@@ -44,7 +45,7 @@
     height: 40px;
     filter: brightness(0) invert(1);
     display: block;
-    border-radius: 0;
+    border-radius: 0; /* override app.css global img border-radius: 4px */
   }
 
   @media (max-width: 480px) {
