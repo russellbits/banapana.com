@@ -58,6 +58,7 @@
 	.article-header {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		max-width: 1000px;
 		margin: 1rem auto 0;
