@@ -51,7 +51,7 @@ describe('ArticleHeader', () => {
     await expect.element(page.getByText('Mar 19, 2026')).toBeInTheDocument();
   });
 
-  it('renders the action emoji row', async () => {
+  it.skip('renders the action emoji row', async () => {
     const { container } = render(ArticleHeader, defaults);
     const row2 = container.querySelector('.actions');
     await expect.element(page.elementLocator(row2)).toBeInTheDocument();

@@ -1,6 +1,6 @@
 <script>
 	import { getSection } from '$lib/sections.js';
-	let { author = '', wordCount = 0, date = '', section = '', rotation = 0 } = $props();
+	let { author = '', wordCount = 0, date = '', section = '' } = $props();
 	const sectionData = $derived(getSection(section));
 
 	function slugify(name) {
