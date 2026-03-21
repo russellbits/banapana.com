@@ -7,7 +7,7 @@
 
 ## Overview
 
-A new `SiteMenu` component rendered as the first element on every page. It is a black, 85px-tall horizontal bar that sticks to the top of the viewport as the user scrolls. The right side carries five social icon links. The left side is intentionally empty. The existing `PubDate` component (inside `Cover`) is repositioned to visually protrude up into the menu bar.
+A new `SiteMenu` component rendered as the first element in the layout template body on every page (unconditionally). It is a black, 85px-tall horizontal bar that sticks to the top of the viewport as the user scrolls. The right side carries five social icon links. The left side is intentionally empty. The existing `PubDate` component (inside `Cover`) is repositioned to visually protrude up into the menu bar.
 
 ---
 
@@ -17,20 +17,34 @@ A new `SiteMenu` component rendered as the first element on every page. It is a 
 
 - No props — all content (links, icons) is hardcoded site-wide social data.
 - Renders a single `<nav>` with one child: `.social-icons` flex container.
+- Renders unconditionally on all pages, including the home page.
+- Use **Svelte 5 runes syntax** to match `+layout.svelte`. Since the component has no props or reactive state, no `<script>` block is required at all — the component is purely markup and styles.
 
 ---
 
 ## Layout Position
 
-Added to `src/routes/+layout.svelte` before `<Cover>`:
+Added to `src/routes/+layout.svelte` as the first rendered element in the template body (after `<svelte:head>`), before the conditional `<Cover>` block:
 
+```svelte
+<SiteMenu />         <!-- new, unconditional -->
+{#if title}
+  <Cover />
+{/if}
+{#if author}
+  <ArticleHeader />
+{/if}
+{#if section}
+  <SectionTab />
+{/if}
+<div id="page">
+  {@render children()}
+</div>
 ```
-<SiteMenu />
-<Cover />
-<ArticleHeader />
-<SectionTab />
-<#page>
-```
+
+No margin or padding should exist between `<SiteMenu>` and `<Cover>` — `body { margin: 0; padding: 0 }` is already set in `app.css` and SiteMenu must not introduce any bottom margin.
+
+On pages without a `title` (no Cover rendered), the SiteMenu bar appears alone at the top with `#page` content scrolling beneath it — this is acceptable and requires no special handling.
 
 ---
 
@@ -76,41 +90,70 @@ The bar starts in normal document flow at the very top of the page. Once the use
 |-----------|-------------------------------------|
 | width     | `40px`                              |
 | height    | `40px`                              |
-| filter    | `brightness(0) invert(1)` (white)   |
+| filter    | `brightness(0) invert(1)` (forces white regardless of source PNG color) |
+| alt       | `""` — the parent `<a>` carries the accessible label via `aria-label` |
 
 ### Social links (left to right)
 
-| Icon file                                  | URL                                                    |
-|--------------------------------------------|--------------------------------------------------------|
-| `/images/social-icons/substack-logo.png`   | https://banapana.substack.com                          |
-| `/images/social-icons/medium-logo.png`     | https://medium.com/minds-on-media                      |
-| `/images/social-icons/linkedin-logo.png`   | https://linkedin.com/in/russellbits                    |
-| `/images/social-icons/quora-logo.png`      | https://www.quora.com/profile/Russell-Warner           |
-| `/images/social-icons/reddit-logo.png`     | https://www.reddit.com/user/ruzelmania/                |
+All five PNG assets already exist in `static/images/social-icons/`.
 
-All links: `target="_blank" rel="noopener noreferrer"`.
+| Icon file                                  | URL                                                    | aria-label   |
+|--------------------------------------------|--------------------------------------------------------|--------------|
+| `/images/social-icons/substack-logo.png`   | https://banapana.substack.com                          | `"Substack"` |
+| `/images/social-icons/medium-logo.png`     | https://medium.com/minds-on-media                      | `"Medium"`   |
+| `/images/social-icons/linkedin-logo.png`   | https://linkedin.com/in/russellbits                    | `"LinkedIn"` |
+| `/images/social-icons/quora-logo.png`      | https://www.quora.com/profile/Russell-Warner           | `"Quora"`    |
+| `/images/social-icons/reddit-logo.png`     | https://www.reddit.com/user/ruzelmania/                | `"Reddit"`   |
+
+All links: `target="_blank" rel="noopener noreferrer"`. The `<nav>` has `aria-label="Social links"`.
+
+### Mobile / responsive
+
+On viewports ≤ 480px, icon size reduces to `32px × 32px` and gap reduces to `8px`, keeping the row proportional. Bar height remains 85px.
 
 ---
 
 ## PubDate Overlap
 
-PubDate lives in `Cover.svelte` as `position: absolute; top: 20px; left: 20px; z-index: 10`.
+### The overflow problem
 
-To make it visually protrude up into the menu bar:
+`PubDate`'s wrapper (`.pubdate-wrapper`) is currently a direct child of `.cover`, which has `overflow: hidden`. Giving `.pubdate-wrapper` a negative `top` value would cause it to be clipped. **The fix is to move `.pubdate-wrapper` out of `.cover` and make it a direct child of `.cover-wrapper` instead.** `.cover-wrapper` already has `position: relative` and no `overflow` set (defaults to `visible`), so absolutely-positioned children can escape its bounds freely.
 
-| Property  | Current | New      |
-|-----------|---------|----------|
-| top       | `20px`  | `-28px`  |
-| z-index   | `10`    | `200`    |
+### New positioning
 
-The `-28px` offset places roughly half of the 50px circle above the Cover's top edge, overlapping into the 85px menu bar. The `z-index: 200` ensures it renders above the menu (`z-index: 100`).
+`.pubdate-wrapper` moves to `.cover-wrapper` in the Cover template:
+
+```html
+<div class="cover-wrapper">
+  <div class="pubdate-wrapper">   <!-- moved here, outside .cover -->
+    <PubDate />
+  </div>
+  <div class="cover">...</div>
+  ...
+</div>
+```
+
+CSS for `.pubdate-wrapper`:
+
+| Property    | Value    | Reasoning                                                                 |
+|-------------|----------|---------------------------------------------------------------------------|
+| position    | absolute | Positioned relative to `.cover-wrapper`                                   |
+| top         | `-25px`  | Half of the 50px-tall PubDate circle sits above `.cover-wrapper`'s top edge, centering it on the menu/cover boundary |
+| left        | `20px`   | Unchanged from current                                                    |
+| z-index     | `200`    | Above the menu's `z-index: 100`                                           |
+
+The PubDate circle is confirmed 50px (`width: 50px; height: 50px` in `PubDate.svelte`). At page load, `.cover-wrapper` starts immediately below the 85px SiteMenu (no margin between them). With `top: -25px`, the circle's center aligns exactly with the menu/cover boundary.
+
+### Cover.svelte syntax note
+
+`Cover.svelte` uses Svelte 4 `export let` prop syntax. The changes to this file are limited to: (1) moving `.pubdate-wrapper` in the HTML template, and (2) updating its CSS. No syntax migration is required.
 
 ---
 
 ## Files Changed
 
-| File                                      | Change                                      |
-|-------------------------------------------|---------------------------------------------|
-| `src/lib/components/SiteMenu.svelte`      | Create new component                        |
-| `src/routes/+layout.svelte`              | Import and render `<SiteMenu />` first      |
-| `src/lib/components/Cover.svelte`         | Adjust `.pubdate-wrapper` top and z-index   |
+| File                                      | Change                                                              |
+|-------------------------------------------|---------------------------------------------------------------------|
+| `src/lib/components/SiteMenu.svelte`      | Create new component (Svelte 5, no script block needed)             |
+| `src/routes/+layout.svelte`              | Import and render `<SiteMenu />` as first template body element     |
+| `src/lib/components/Cover.svelte`         | Move `.pubdate-wrapper` to `.cover-wrapper` level; update its CSS   |
