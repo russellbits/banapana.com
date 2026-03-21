@@ -1,18 +1,19 @@
 ---
+
 Title: "The Map Is Not the Territory"
 Subtitle: "--"
-Author: "R.E. Warner"
+Author: "R.E Warner"
 Summary: "AI (specifically LLMs) is a sophisticated \"map\" of language, not a thinking \"mind.\" It critiques the belief that scale leads to reasoning, warns of \"model collapse,\" and suggests the future lies in smaller, private models."
 Section: "It's Thinking"
 Column: "The AI Diaspora"
 Tags: "#AI, #LLM, #artificial_intelligence, #taxonomy, #AGI, #hype, #quantum, #local_AI"
 Created: "2026-03-12"
-Modified: "2026-03-19"
+Modified: "2026-03-21"
 Published: "2026-03-17"
 Status: "published"
----
 
-# {metadata.Title}
+---
+# The Map Is Not the Territory
 
 ![I'm not asking for directions.](./media/cover.jpg)
 
@@ -38,7 +39,7 @@ Large language models are, at their mathematical core, extraordinarily sophistic
 
 And here is where it gets genuinely dark: the models are now training on each other's output. The internet — the ocean these systems fished for human thought — is filling with AI-generated text. Researchers call it [model collapse](https://arxiv.org/abs/2305.17493). The rare, strange, original edges of human expression disappear first. What remains is fluent, confident, and increasingly homogenized. The map is eating the landscape it was drawn from.
 
-*[→ Deep dive: The Fluency Illusion — what LLMs actually are, what the research actually shows, and why the valuation is a fantasy]*
+*[→ Deep dive: [The Fluency Illusion](the-fluency-illusion) — what LLMs actually are, what the research actually shows, and why the valuation is a fantasy]*
 
 ---
 
@@ -54,7 +55,7 @@ There is a third category that the current taxonomy barely acknowledges: the *cu
 
 We haven't found our Darwin yet — the person who can explain not just what these species are, but how they're related, where they came from, and where the selection pressure is actually taking them. Until then, the taxonomic vacuum is filled by press releases.
 
-*[→ Deep dive: Who Named These Animals? — the history of AI classification, the survivor populations, cultivated models, and why the map has no legend]*
+*[→ Deep dive: [Who Named These Animals?](who-named-these-animals) — the history of AI classification, the survivor populations, cultivated models, and why the map has no legend]*
 
 ---
 
@@ -66,7 +67,7 @@ Minsky was at MIT. So was Rodney Brooks, who spent the 1980s arguing that intell
 
 And then there is the wilderness beyond the map's edge. Richard Feynman saw something coming in 1981, when he told a room of physicists at MIT that ["Nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum mechanical."](https://en.wikiquote.org/wiki/Richard_Feynman) He was talking about particles, but [Quantum computers](https://en.wikipedia.org/wiki/Quantum_computing), through superposition — existing in multiple states simultaneously, exploring vast solution spaces in parallel — are at least *the right shape* of machine for simulating the combinatorial complexity of a human brain. The philosophers who study [whole brain emulation](https://en.wikipedia.org/wiki/Mind_uploading) — a simulated mind running on non-biological substrate — are no longer working in pure science fiction. They're just working slightly ahead of schedule. I find I can't think about it for too long without needing to go outside.
 
-*[→ Deep dive: The Modular Mind — Minsky's society, neurosymbolic AI, quantum horizons, and the ethics of the brain in a jar]*
+*[→ Deep dive: [The Modular Mind](the-modular-mind) — Minsky's society, neurosymbolic AI, quantum horizons, and the ethics of the brain in a jar]*
 
 ---
 
