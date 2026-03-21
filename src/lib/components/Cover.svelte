@@ -26,15 +26,15 @@
 </script>
 
 <div class="cover-wrapper">
+	<div class="pubdate-wrapper">
+		<PubDate />
+	</div>
 	<div class="cover">
 		<div class="bg-layer" style="--cover-url: url('{cover_img_url}')"></div>
 		<div class="gradient-overlay"></div>
 		<div class="particles">
 			<span></span><span></span><span></span><span></span><span></span>
 			<span></span><span></span><span></span><span></span><span></span>
-		</div>
-		<div class="pubdate-wrapper">
-			<PubDate />
 		</div>
 		<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
 		<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
@@ -44,6 +44,7 @@
 			{:else}
 				<a href="/" class="logo-link"><Logo /></a>
 			{/if}
+			<h5>{column}:</h5>
 			<h1 class="title">{title}</h1>
 		</div>
 	</div>
@@ -98,21 +99,23 @@
 		}
 	}
 
+	/*
 	@keyframes glow {
 		0%,
 		100% {
 			text-shadow:
-				0 0 20px rgba(255, 200, 0, 0.8),
-				0 0 40px rgba(255, 100, 0, 0.6),
-				4px 4px 8px rgba(0, 0, 0, 0.8);
+				0 0 20px rgba(255, 255, 255, 0.8),
+				0 0 40px rgba(177, 250, 76, 0.6),
+				4px 4px 6px rgba(0, 0, 0, 0.8);
 		}
 		50% {
 			text-shadow:
-				0 0 40px rgba(255, 200, 0, 1),
-				0 0 80px rgba(255, 100, 0, 0.8),
-				4px 4px 8px rgba(0, 0, 0, 0.8);
+				0 0 40px rgba(255, 255, 255, 1),
+				0 0 80px rgba(177, 250, 76, 0.6),
+				4px 4px 6px rgba(0, 0, 0, 0.8);
 		}
 	}
+	*/
 
 	@font-face {
 		font-family: 'Roboto Slab';
@@ -235,9 +238,9 @@
 
 	.pubdate-wrapper {
 		position: absolute;
-		top: 20px;
+		top: -25px;
 		left: 20px;
-		z-index: 10;
+		z-index: 200;
 	}
 
 	.content {
@@ -303,5 +306,4 @@
 		height: auto;
 		z-index: 20;
 	}
-
 </style>
