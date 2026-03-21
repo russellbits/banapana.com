@@ -1,5 +1,7 @@
 <script>
-	let { author = '', wordCount = 0, date = '' } = $props();
+	import { getSection } from '$lib/sections.js';
+	let { author = '', wordCount = 0, date = '', section = '', rotation = 0 } = $props();
+	const sectionData = $derived(getSection(section));
 
 	function slugify(name) {
 		return name
@@ -27,7 +29,7 @@
 	}
 </script>
 
-<div class="article-header-outer">
+<div class="article-header">
 	<div class="byline">
 		<span class="author-group">
 			<img
@@ -40,23 +42,27 @@
 			/>
 			<em class="author-name">{author}</em>
 		</span>
-		<span class="meta-row">
-			<span class="read-time">⏱ {readTime} min read</span>
-			<span class="pub-date">{formattedDate}</span>
-		</span>
 	</div>
-	<div class="actions">
+	<div class="read-time">⏱ {readTime} min read</div>
+	<div class="pub-date">{formattedDate}</div>
+	<div class="section" style="color:{sectionData.color}">Dept. of {section}</div>
+</div>
+
+<!-- <div class="actions">
 		<span>👏</span>
 		<span>🔖</span>
 		<span>🔗</span>
-	</div>
-</div>
+	</div> -->
 
 <style>
-	.article-header-outer {
+	.article-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 		max-width: 1000px;
 		margin: 1rem auto 0;
-		padding: 0 80px;
+		padding: 0 80px 18px 80px;
+		border-bottom: 1px double var(--color-rule);
 	}
 
 	.byline {

@@ -1,7 +1,7 @@
 import { page } from 'vitest/browser';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-svelte';
-import ArticleHeader from './Article_Header.svelte';
+import ArticleHeader from './ArticleHeader.svelte';
 
 const defaults = {
   author: 'R. E. Warner',
@@ -9,7 +9,7 @@ const defaults = {
   date: '2026-03-19'
 };
 
-describe('Article_Header', () => {
+describe('ArticleHeader', () => {
   it('renders the author name', async () => {
     render(ArticleHeader, defaults);
     await expect.element(page.getByText('R. E. Warner')).toBeInTheDocument();
