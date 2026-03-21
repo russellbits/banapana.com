@@ -1,8 +1,9 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
-	import ArticleHeader from '$lib/components/Article_Header.svelte';
+	import ArticleHeader from '$lib/components/ArticleHeader.svelte';
 	import Cover from '$lib/components/Cover.svelte';
 	import SectionTab from '$lib/components/SectionTab.svelte';
+	import SiteMenu from '$lib/components/SiteMenu.svelte';
 	import { getAllArticles } from '$lib/content.js';
 	import { getSection, slugRotation } from '$lib/sections.js';
 	import { page } from '$app/stores';
@@ -28,6 +29,8 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+<SiteMenu />
 
 {#if title}
 	<Cover {title} cover_img_url={cover} {articles} {column} {isHome} />
