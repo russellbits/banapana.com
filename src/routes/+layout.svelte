@@ -4,12 +4,21 @@
 	import Cover from '$lib/components/Cover.svelte';
 	import SectionTab from '$lib/components/SectionTab.svelte';
 	import SiteMenu from '$lib/components/SiteMenu.svelte';
+	import Comments from '$lib/components/Comments.svelte';
 	import { getAllArticles } from '$lib/content.js';
 	import { getSection, slugRotation } from '$lib/sections.js';
 	import { page } from '$app/stores';
 	import '../app.css';
-	const rootCovers = import.meta.glob('./media/cover.{jpg,png,webp}', { eager: true, query: '?url', import: 'default' });
-	const rootCover = rootCovers['./media/cover.jpg'] ?? rootCovers['./media/cover.png'] ?? rootCovers['./media/cover.webp'] ?? '/images/cover-generic.jpg';
+	const rootCovers = import.meta.glob('./media/cover.{jpg,png,webp}', {
+		eager: true,
+		query: '?url',
+		import: 'default'
+	});
+	const rootCover =
+		rootCovers['./media/cover.jpg'] ??
+		rootCovers['./media/cover.png'] ??
+		rootCovers['./media/cover.webp'] ??
+		'/images/cover-generic.jpg';
 
 	let { children } = $props();
 
@@ -48,12 +57,16 @@
 	{@render children()}
 </div>
 
+{#if title}
+	<Comments identifier={$page.url.pathname} {title} url={$page.url.origin + $page.url.pathname} />
+{/if}
+
 <style>
-:global(body) {
-	margin: 0;
-	height: 100vh;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
+	:global(body) {
+		margin: 0;
+		height: 100vh;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 </style>
