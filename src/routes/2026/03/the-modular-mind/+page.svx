@@ -17,10 +17,8 @@ Status: "published"
 
 ![It is made of many pieces made of pieces. The small pieces are dumb. The big piece is smart?](./media/cover.jpg)
 
-> ## "We shall envision the mind (or brain) as composed of many partially autonomous "agents"—as a "Society" of smaller minds."
+> #### "We shall envision the mind (or brain) as composed of many partially autonomous "agents"—as a "Society" of smaller minds."
 — [Marvin Minsky](https://en.wikiquote.org/wiki/Marvin_Minsky)
-
----
 
 [SIDEBAR]
 #### The AI Diaspora

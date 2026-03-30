@@ -1,7 +1,7 @@
 ---
 
 Title: "This AI Cannot Be Empire"
-Author: Russell Warner
+Author: R.E. Warner
 Created: 2026-02-23
 Status: published
 Tags: ai, alignment, enclosure, pentagon, openai, anthropic, democracy
