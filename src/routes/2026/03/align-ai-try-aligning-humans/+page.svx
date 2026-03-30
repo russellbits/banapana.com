@@ -2,7 +2,7 @@
 
 Title: "Align AI? Try Aligning Humans"
 Subtitle: "It's a Way Harder Problem"
-Author: Russell Warner
+Author: R.E. Warner
 Summary: --
 Section: It's Thinking
 Column: --
