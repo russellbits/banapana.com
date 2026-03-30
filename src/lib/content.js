@@ -28,7 +28,12 @@ export function getPageData(pathname) {
 	const data = {};
 	for (const [key, val] of Object.entries(raw)) {
 		const str = val instanceof Date ? val.toISOString() : val;
-		data[key.toLowerCase()] = typeof str === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(str) ? str.slice(0, 10) : str;
+		let normalized = typeof str === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(str) ? str.slice(0, 10) : str;
+		// Strip outer quotes: ASCII " ' and curly/smart quotes (\u201c\u201d\u2018\u2019) from IA Writer
+		if (typeof normalized === 'string') normalized = normalized.replace(/^[""''"\u2018\u2019\u201c\u201d]+|[""''"\u2018\u2019\u201c\u201d]+$/g, '');
+		// Treat '--' as null
+		if (normalized === '--') normalized = null;
+		data[key.toLowerCase()] = normalized;
 	}
 	if (cover) data.cover = cover;
 

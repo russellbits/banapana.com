@@ -1,17 +1,16 @@
 ---
 
-Title: Unsubscribe & Resist
-Subtitle: AI might be a benefit to your platform exhaustion
-Summary: Use AI to reclaim your digital life from parasitic platforms
+Title: "Unsubscribe & Resist"
+Subtitle: "AI might be a benefit to you platform exhaustion"
+Summary: "Use AI to reclaim your digital life from parasitic platforms"
 Tags: #unsubscribe, #resist, #ai
 Created: 2026-02-03
-Modified: 2026-02-14
+Modified: 2026-03-21
 Published: 2026-02-15
 Status: published
 
 ---
-
-![Unsubscribe & Resist](./media/cover.jpg)
+# Unsubscribe & Resist with AI!
 
 One thing I'm doing with large language models is using them to get rid of unnecessarily nosy corporations, their noisy platforms, and their disappointing politics. In the same vein as [Resist and Unsubscribe](https://www.resistandunsubscribe.com), I'm taking those services that track the music I listen to (and keep the files for themselves), or record where I am and what book I'm reading (while they charge *double* what a digital book should cost), and switching them over to AI agents that *will serve me and only me and only what I want with NO ADS*.
 
@@ -36,8 +35,6 @@ These platforms aren't symbiotic. They're leeches.
 And the worst part? **They convinced us we needed them.** That managing our own music library was too hard. That keeping track of our own reading was too complicated. That we couldn't possibly organize our own information without their beautiful, algorithm-driven, ad-supported interfaces.
 
 That was always bullshit.
-
-> They turned everything into a stadium when what we wanted was a salon.
 
 ## Scale Is The Problem
 

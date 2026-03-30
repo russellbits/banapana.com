@@ -15,7 +15,7 @@ Status: "published"
 ---
 # The Map Is Not the Territory
 
-![I'm not asking for directions.](./media/cover.jpg)
+![I'm not asking for directions!](./media/cover.jpg)
 
 There's a [nineteenth-century fantasy](https://en.wikipedia.org/wiki/On_Exactitude_in_Science) — told by Lewis Carroll, perfected by Borges — about a map drawn at a scale of one mile to the mile. So precise, so comprehensive, so *complete* that it eventually covers the entire territory it was meant to describe. The farmers complained. It blocked out the sun.
 
@@ -26,6 +26,16 @@ We are somewhere in the middle of one of the most expensive category errors in t
 It will not. Not because the engineering isn't impressive — it is — but because a map, no matter how detailed, is not the landscape. [Alfred Korzybski](https://en.wikipedia.org/wiki/Alfred_Korzybski) said it first and cleanest: *the map is not the territory.* What we've built is a very, very large map of human language. We have mistaken the map for a mind.
 
 This is a four-part investigation into what AI actually is, what it actually isn't, what it might look like if we were serious about building it properly, and — most urgently — who should be running it and where.
+
+[SIDEBAR]
+#### The AI Diaspora
+This aritcle is one part of five:
+1. The Map is Not the Teritory [You are here.]
+2. [The Fluency Illusion](./the-fluency-illusion/)
+3. [Who Named These Animals](./who-named-these-animals/)
+4. [The Modular Mind](./the-modular-mind/)
+5. [The Private Mind](./the-private-mind/)
+[/SIDEBAR]
 
 ---
 
@@ -83,7 +93,7 @@ If Montañez is right that semantic understanding is not a function of scale, th
 
 The corporate cloud LLM will survive. It will become a tool — useful, bounded, and increasingly commoditized, like search before it. The VC pitch that it is the substrate of artificial general intelligence will not survive contact with the economics. The revolution is not arriving. The data centers are already old.
 
-*[→ Deep dive: The Private Mind — local AI, the GPU bubble, Apple's long game, and why your phone is smarter than the pitch deck]*
+*[→ Deep dive: [The Private Mind](/the-private-mind)—local AI, the GPU bubble, Apple's long game, and why your phone is smarter than the pitch deck]*
 
 ---
 

@@ -5,10 +5,12 @@
 
 	function slugify(name) {
 		return name
+			.trim()
 			.toLowerCase()
 			.replace(/[^a-z0-9 -]/g, '-')
 			.replace(/ +/g, '-')
-			.replace(/-{2,}/g, '-');
+			.replace(/-{2,}/g, '-')
+			.replace(/^-+|-+$/g, '');
 	}
 
 	const avatarSrc = $derived(`/images/authors/${slugify(author)}.png`);
@@ -25,7 +27,7 @@
 	);
 
 	function handleAvatarError(e) {
-		e.target.src = '/images/default_gravatar.gif';
+		e.target.style.display = 'none';
 	}
 </script>
 
@@ -89,19 +91,13 @@
 		font-size: 0.9rem;
 	}
 
-	.meta-row {
-		display: flex;
-		gap: 2rem;
-		align-items: center;
-	}
-
 	.read-time,
 	.pub-date {
 		font-size: 0.85rem;
 		color: var(--color-muted);
 	}
 
-	.actions {
+	/*.actions {
 		display: flex;
 		gap: 1.5rem;
 		align-items: center;
@@ -110,13 +106,13 @@
 		margin-top: 0.75rem;
 		border-top: 1px solid var(--color-rule);
 		border-bottom: 1px solid var(--color-rule);
-	}
+	}*/
 
-	@media (max-width: 900px) {
+	/*@media (max-width: 900px) {
 		.article-header-outer {
 			padding: 0 1rem;
 		}
-	}
+	}*/
 
 	@media (max-width: 600px) {
 		.byline {
@@ -125,9 +121,9 @@
 			gap: 0.5rem;
 		}
 
-		.meta-row {
+		/*.meta-row {
 			gap: 1.2rem;
-		}
+		}*/
 
 		.read-time,
 		.pub-date {

@@ -28,58 +28,58 @@
 </div>
 
 <style>
-.date-button-container {
-  position: relative;
-  margin: 0;
-}
+	.date-button-container {
+		position: relative;
+		margin: 0;
+	}
 
-/* .date-button-border {
+	/* .date-button-border {
   height: 70px;
   width: 70px;
   border-radius: 50%;
   background-color: rgb(43, 59, 137);
 } */
 
-.date-button {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 66px;
-  height: 66px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(117, 250, 76, 0.8);
-}
+	.date-button {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: rgb(94, 192, 53);
+	}
 
-.day {
-  font: 36px 'Trebuchet MS';
-  color: white;
-  letter-spacing: -2px;
-  margin-top: -4px;
-  text-align: center;
-}
+	.day {
+		font: 24px 'Trebuchet MS';
+		color: white;
+		letter-spacing: 0;
+		margin-top: -3px;
+		text-align: center;
+	}
 
-.month {
-  font: 18px 'Trebuchet MS';
-  color: white;
-  margin-top: -8px;
-  text-align: center;
-  text-transform: uppercase;
-}
+	.month {
+		font: 14px 'Trebuchet MS';
+		color: white;
+		margin-top: -4px;
+		text-align: center;
+		text-transform: uppercase;
+	}
 
-@media (max-width: 480px) {
-  .date-button {
-    width: 48px;
-    height: 48px;
-  }
-  .day {
-    font-size: 26px;
-  }
-  .month {
-    font-size: 13px;
-    margin-top: -6px;
-  }
-}
+	@media (max-width: 480px) {
+		.date-button {
+			width: 48px;
+			height: 48px;
+		}
+		.day {
+			font-size: 26px;
+		}
+		.month {
+			font-size: 13px;
+			margin-top: -6px;
+		}
+	}
 </style>

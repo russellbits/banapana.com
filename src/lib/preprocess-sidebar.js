@@ -1,3 +1,5 @@
+import { marked } from 'marked';
+
 const SIDEBAR_BLOCK_REGEX = /\[SIDEBAR\]([\s\S]*?)\[\/SIDEBAR\]/g;
 
 // Matches fenced code blocks OR markdown images (with optional title stripped).
@@ -8,11 +10,8 @@ const SIDEBAR_IMPORT = `import Sidebar from '$lib/components/Sidebar.svelte';`;
 const FLOAT_IMAGE_IMPORT = `import FloatImage from '$lib/components/FloatImage.svelte';`;
 
 function parseSidebarBlock(blockContent, side) {
-	const titleMatch = blockContent.match(/title:\s*"((?:[^"\\]|\\.)*)"/);
-	const contentMatch = blockContent.match(/content:\s*"((?:[^"\\]|\\.)*)"/);
-	const title = (titleMatch ? titleMatch[1] : '').replace(/\\"/g, '"').replace(/"/g, '&quot;');
-	const content = (contentMatch ? contentMatch[1] : '').replace(/\\"/g, '"').replace(/"/g, '&quot;');
-	return `<Sidebar title="${title}" content="${content}" side="${side}" />`;
+	const html = JSON.stringify(marked.parse(blockContent.trim()));
+	return `<Sidebar side="${side}">{@html ${html}}</Sidebar>`;
 }
 
 function injectImports(code, imports) {
@@ -23,6 +22,13 @@ function injectImports(code, imports) {
 	const regularScriptRegex = /<script(?!\s+context\s*=\s*["']module["'])([^>]*)>/;
 	if (regularScriptRegex.test(code)) {
 		return code.replace(regularScriptRegex, `<script$1>\n\t${toInject}`);
+	}
+	// If frontmatter exists at start of file, inject AFTER closing ---
+	const frontmatterRegex = /^---\r?\n[\s\S]*?\r?\n---\r?\n/;
+	const frontmatterMatch = code.match(frontmatterRegex);
+	if (frontmatterMatch) {
+		const afterFrontmatter = code.slice(frontmatterMatch[0].length);
+		return `${frontmatterMatch[0]}\n<script>\n\t${toInject}\n</script>\n${afterFrontmatter}`;
 	}
 	return `<script>\n\t${toInject}\n</script>\n${code}`;
 }

@@ -1,17 +1,21 @@
 ---
 
-Title: 'From Tulips to Transformers: A Brief History of Expensive Mistakes'
-Subtitle: Agentic Content Management
-Author: R. E. Warner
-Cover: cover.jpg
-Summary: AI agents are fundamentally changing content management by automating what humans find chaotic—organizing, categorizing, and generating content at scale—ushering in a new era of agentic systems that go beyond traditional CMS platforms.
-Tags: #CMS, #content, #blog, #ai, #webdevelopment
-Created: 2025-10-08
-Modified: 2026-02-15
-Status: published
+Title: "From Tulips to Transformers: A Brief History of Expensive Mistakes"
+Subtitle: "the Economics of the AI Bubble"
+Author: "R.E. Warner"
+Summary: "AI agents are fundamentally changing content management by automating what humans find chaotic—organizing, categorizing, and generating content at scale—ushering in a new era of agentic systems that go beyond traditional CMS platforms."
+Section: "Fabertising"
+Column: "--"
+Tags: "#CMS, #content, #blog, #ai, #webdevelopment"
+Created: "2025-10-08"
+Modified: "2026-03-21"
+Published: "2026-03-21"
+Status: "published"
 
 ---
 # From Tulips to Transformers: A Brief History of Expensive Mistakes
+
+![They'll just have nothing to do without us.](./media/cover.jpg)
 
 After a couple years of HTML slinging, I did what every ambitious web drone did in 1999: moved to New York to watch money evaporate from Silicon Alley in real-time. It was only two years until the inevitable happened: venture capitalists remembered that businesses need revenue, and the dot bomb vaporized our stock options into the digital ether where they belonged.
 
@@ -27,7 +31,7 @@ Here's the thing about AI that makes this bubble particularly stupid: like the w
 
 Large Language Models are a genuinely useful software tool that should be integrated into existing applications, not worshipped as the second coming of electricity. After watching Facebook, Google, and the gang violate every privacy norm imaginable, you'd think people might be cautious about handing their entire digital lives to AI companies. But no—we're speedrunning that mistake too. And AI companies aren't even focusing on software anymore. They're pouring billions into the least imaginative strategy possible: building massive data centers so we can rent AI from the cloud.
 
-Let me paint you a picture of the post-bubble wasteland. When (not if) the money dries up, these AI companies will pivot to advertising faster than you can say “[enshittification](https://amzn.to/3KUIJIP)💸.” We're talking ads so targeted, so woven into simulated conversations, that you won't even notice you're being sold dish soap by what you thought was your helpful AI assistant. Better yet: these companies will collect enough samples of your face and voice to simulate _you_. That's not paranoia—that's their business model.
+Let me paint you a picture of the post-bubble wasteland. When (not if) the money dries up, these AI companies will pivot to advertising faster than you can say "[enshittification](https://amzn.to/3KUIJIP)💸." We're talking ads so targeted, so woven into simulated conversations, that you won't even notice you're being sold dish soap by what you thought was your helpful AI assistant. Better yet: these companies will collect enough samples of your face and voice to simulate _you_. That's not paranoia—that's their business model.
 
 I've [argued before](https://banapana.substack.com/p/lets-call-them-answer-engines) that calling LLMs "artificial intelligence" is generous at best. They have no goals, no ability to take action, and no way to measure progress toward anything. They're cognitive assistants—really good ones—but assistants nonetheless. For that use case, people need privacy and personality in their AI. They're already trying to confide in these things, date them, marry them. And Silicon Valley's response? "How do we monetize that trauma?" With the government in its current state of functional paralysis, expect exactly zero regulation until something truly horrifying happens. Then we'll get a Congressional hearing where septuagenarians ask ChatGPT if it knows it's a computer.
 

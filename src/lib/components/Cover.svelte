@@ -12,16 +12,22 @@
 
 	let tocOpen = false;
 
+	function isNull(val) {
+		return !val || val === '--' || /^-+$/.test(val.trim());
+	}
+
 	function slugifyColumn(name) {
 		return name
+			.trim()
 			.toLowerCase()
 			.replace(/[^a-z0-9 -]/g, '-')
 			.replace(/ +/g, '-')
 			.replace(/-{2,}/g, '-')
+			.replace(/^-+|-+$/g, '')
 			.replace(/^the-/, '');
 	}
 
-	$: badgeSlug = column && column !== '--' ? slugifyColumn(column) : '';
+	$: badgeSlug = !isNull(column) ? slugifyColumn(column) : '';
 	$: badgeSrc = badgeSlug ? `/images/column-badges/${badgeSlug}.png` : '';
 </script>
 
@@ -44,7 +50,7 @@
 			{:else}
 				<a href="/" class="logo-link"><Logo /></a>
 			{/if}
-			<h5>{column}:</h5>
+			{#if !isNull(column)}<h5 class="column-title">{column}:</h5>{/if}
 			<h1 class="title">{title}</h1>
 		</div>
 	</div>
@@ -249,7 +255,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		justify-content: flex-start;
+		margin-top: 6rem;
 		width: 100%;
 		height: 100%;
 	}
@@ -267,6 +274,14 @@
 		text-align: center;
 		line-height: 1;
 		padding: 0 24px;
+		margin: 0;
+	}
+
+	.column-title {
+		font-family: 'Roboto Slab', serif;
+		font-size: clamp(14px, 4vw, 24px);
+		font-weight: 500;
+		color: #fff;
 		margin: 0;
 	}
 

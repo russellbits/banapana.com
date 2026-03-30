@@ -11,16 +11,13 @@ Modified: "2026-03-19"
 Published: "2026-03-19"
 Status: "published"
 ---
-
-![Let us tell you something the government/doctors/illuminati *don’t* want you to know!](./media/cover.jpg)
-
-### *This is the first of a series of articles on the topic of Youtube’s newfound scuzziness.*
+#### *This is the first of a series of articles on the topic of Youtube’s newfound scuzziness.*
 
 # Doomtubers
 
-There's a man in Beijing with a whiteboard who knows exactly how civilization ends.
+There's a man in Beijing with a whiteboard who knows exactly how civilization ends. He'll tell you about it in a measured, academic tone—the kind that implies he has tenure somewhere important (he teaches at a progressive high school, but details). He'll draw arrows between historical events. He'll invoke game theory, Asimov, the Sicilian Expedition. He graduated from Yale. He's published. He has a Harvard affiliation. The whiteboard is spotless.
 
-He'll tell you about it in a measured, academic tone—the kind that implies he has tenure somewhere important (he teaches at a progressive high school, but details). He'll draw arrows between historical events. He'll invoke game theory, Asimov, the Sicilian Expedition. He graduated from Yale. He's published. He has a Harvard affiliation. The whiteboard is spotless.
+![Let us tell you something the government/doctors/illuminati *don't* want you to know!](./media/cover.jpg)
 
 His name is Jiang Xueqin, he runs a YouTube channel called [Predictive History](https://www.youtube.com/@PredictiveHistory), and in May 2024 he recorded a classroom lecture predicting that Donald Trump would win the election and drag America into a catastrophic war with Iran. When those things started happening, the lecture went from a few hundred views to a hundred thousand subscribers in three days. The internet crowned him "[China's Nostradamus](https://www.ladbible.com/community/chinese-nostradamus-2026-predictions-us-iran-war-216249-20260313)." *Newsweek* wrote him up. He went viral in the most literal sense—something inert suddenly replicating everywhere.
 
@@ -28,12 +25,7 @@ The whiteboard did a lot of work in that lecture. It's the visual grammar of leg
 
 Here's the thing: it's a costume.
 
-# The Model That Isn't
-
-[SIDEBAR]
-title: "What Makes a Real Model?"
-content: "A model has formal structure—parameters, math, and a mechanism that generates specific predictions you can be wrong about in advance. Visualization without falsifiability is storytelling."
-[/SIDEBAR]
+## The Model That Isn't
 
 When Jiang refers to his charts as "models," something important collapses quietly and nobody notices. A chart showing historical patterns is a visualization. It can *illustrate* a hypothesis. But a model has formal structure—parameters, math, a mechanism that generates specific predictions you can be *wrong about in advance.* Asimov's fictional psychohistory worked precisely because Hari Seldon could calculate probabilities on specific outcomes with quantified uncertainty. What Jiang does is the opposite: he uses the *aesthetic* of rigorous prediction—game theory vocabulary, historical pattern-matching, structural analysis—without the formal machinery that would make any of it testable.
 
@@ -41,11 +33,16 @@ Call it psychohistory cosplay.
 
 The game theory framing has the same problem. Real game theory requires formally specifying players, available strategies, payoff functions, and information structures. When those are pinned down, you get specific equilibrium predictions you can be wrong about. But if "game theory" just means *I think about incentives narratively*, then it's not doing the predictive work—it's reasoned storytelling with prestige vocabulary stapled on.
 
+[SIDEBAR]
+#### What Makes a Real Model?
+A model *should* have a formal structure—parameters, math, and a mechanism that generates specific predictions you can be wrong about in advance. Visualization without falsifiability is storytelling.
+[/SIDEBAR]
+
 Psychologist Philip Tetlock spent [decades running forecasting tournaments](https://www.amazon.com/Superforecasting-The-Art-Science-Prediction/dp/0804136718) with thousands of participants to figure out who actually predicts things well. His finding, borrowing Isaiah Berlin's old fox-and-hedgehog distinction: the people who know *one big thing* and organize their worldview around a grand unified theory—hedgehogs—perform barely better than chance. The people who draw on multiple frameworks, hold views with calibrated uncertainty, and update when evidence arrives—foxes—significantly outperform them.
 
 Jiang is a hedgehog in a fox costume. The costume is very good.
 
-# The Broken Watch Problem
+## The Broken Watch Problem
 
 When the predicted events started materializing—Trump elected, U.S.-Iran tensions escalating—the clips went everywhere. What didn't go everywhere: the ceasefire Trump brokered, which was distinctly not the "boots on the ground, hostages not soldiers" catastrophe Jiang outlined. In the comments and forums, this was smoothly reframed: the prediction was always a *thought experiment about structural forces*, not a literal forecast. The framework absorbed the contradiction without updating. This is not a bug. It is the [load-bearing feature](https://en.wikipedia.org/wiki/Falsifiability).
 
@@ -55,7 +52,7 @@ This is not how we should be evaluating forecasters, and Tetlock would tell you 
 
 *[The Free Press](https://www.thefp.com/p/meet-the-internets-new-iran-expert-who) also noted, almost as a footnote, that Jiang believes a coalition of Freemasons, Jesuits, and members of a defunct Jewish cult are conspiring to rule the world from Jerusalem—which is either a red flag about the framework underneath, or proof that the whiteboard really is doing enormous work.)*
 
-# Ancient Appetite, New Distribution
+## Ancient Appetite, New Distribution
 
 Here's what makes this more than a story about one YouTube channel: the appetite Jiang is feeding is ancient and remarkably stable across cultures. Every civilization generates its own eschatological framework. The Norse had Ragnarök. The Zoroastrians had Frashokereti. Christians have Revelation. We have geopolitical YouTube. The packaging changes. The demand doesn't.
 
@@ -67,7 +64,7 @@ YouTube's incentive structure selects hard for exactly these qualities. Confiden
 
 McLuhan would have recognized this immediately: the medium doesn't just carry the content, it *selects* for it. YouTube is a hedgehog factory.
 
-# Festinger's Prophecy
+## Festinger's Prophecy
 
 In 1956, psychologist Leon Festinger [infiltrated a UFO doomsday cult](https://www.amazon.com/When-Prophecy-Fails-Social-Psychological/dp/1578988527) in Chicago that had predicted a great flood would destroy the world on a specific date. When the date passed uneventfully, the group didn't dissolve—it intensified. They began proselytizing harder than ever. Festinger developed his theory of cognitive dissonance to explain it: the greater the investment in a belief, the more creative the mind becomes in protecting it from disconfirming evidence. The prediction failing wasn't experienced as refutation—it was reframed as confirmation that the group's faith had *saved* the world.
 
@@ -79,7 +76,7 @@ The doomtuber phenomenon has a structural wrinkle Festinger couldn't have antici
 
 Stefan Molyneux's [Freedomain Radio](https://en.wikipedia.org/wiki/Stefan_Molyneux) is the clearest example of where this architecture leads when the intellectual good faith runs out entirely. YouTube channel, private forums, a framework of pseudo-therapeutic certainty, and a practice he invented called "deFOOing"—departing from one's Family of Origin—that functioned as the community's loyalty test. Multiple cult experts identified the dynamics. The British Cult Information Centre called it a cult. When the deFOOing started making international news, Molyneux's response was: "If I advised a wife to leave an abusive husband, there would not be articles about how I am a cult leader." The whiteboard equivalent of the thought experiment defense.
 
-# The Costume Is the Message
+## The Costume Is the Message
 
 What makes Jiang more interesting than Molyneux—and more instructive—is that he's genuinely more intellectually serious. The Yale education, the engagement with actual history and philosophy, the classroom context—those are real. He has read the books. He knows the arguments. He's not purely performing expertise; he has some.
 
