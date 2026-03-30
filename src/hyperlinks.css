@@ -1,0 +1,150 @@
+/* hyperlinks.css
+   Link-type indicators via CSS attribute selectors + ::after pseudo-elements
+   For use in iA Writer preview templates
+   ------------------------------------------------------------------ */
+
+/* ── Base reset for all indicators ──────────────────────────────── */
+
+a[href]::after {
+	display: inline-block;
+	margin-left: 0.15em;
+	font-style: normal;
+	font-size: 0.025em;
+	vertical-align: baseline;
+	text-decoration: none;
+	text-decoration-color: transparent;
+	text-decoration-skip-ink: none;
+	border-bottom: 1px solid white;
+}
+
+p:has(a[href]::after) {
+	text-indent: none;
+}
+
+/* ── Protocol-based ──────────────────────────────────────────────── */
+
+a[href^='mailto:']::after {
+	content: '✉️';
+}
+
+a[href^='tel:']::after {
+	content: '📞';
+}
+
+/* ── File type (by extension) ────────────────────────────────────── */
+
+a[href$='.pdf']::after {
+	content: '📄';
+}
+
+a[href$='.mp3']::after,
+a[href$='.m4a']::after,
+a[href$='.ogg']::after,
+a[href$='.wav']::after {
+	content: '🎵';
+}
+
+a[href$='.mp4']::after,
+a[href$='.mov']::after,
+a[href$='.webm']::after {
+	content: '🎬';
+}
+
+a[href$='.zip']::after,
+a[href$='.tar']::after,
+a[href$='.gz']::after {
+	content: '📦';
+}
+
+a[href$='.jpg']::after,
+a[href$='.jpeg']::after,
+a[href$='.png']::after,
+a[href$='.gif']::after,
+a[href$='.webp']::after,
+a[href$='.svg']::after {
+	content: '🖼️';
+}
+
+/* ── Domain-based ────────────────────────────────────────────────── */
+
+a[href*='amazon.com']::after {
+	content: url('/href-icons/amazon.svg');
+}
+
+a[href*='wikipedia.org']::after {
+	content: url('/href-icons/wikipedia.svg');
+}
+
+a[href*='amzn.to']::after {
+	content: '💰';
+}
+
+/* Video */
+a[href*='youtube.com']::after,
+a[href*='youtu.be']::after {
+	content: '📺';
+}
+
+a[href*='vimeo.com']::after {
+	content: '🎞️';
+}
+
+/* Social */
+a[href*='twitter.com']::after,
+a[href*='x.com']::after {
+	content: '🐦';
+}
+
+a[href*='mastodon']::after {
+	content: '🐘';
+}
+
+/*a[href*="linkedin.com"]::after {
+    content: " 💼";
+}*/
+
+a[href*='instagram.com']::after {
+	content: '📷';
+}
+
+/* Dev / Reference */
+a[href*='github.com']::after {
+	content: '🐙';
+}
+
+a[href*='archive.org']::after {
+	content: '🏛️';
+}
+
+/* Podcasts */
+a[href*='overcast.fm']::after,
+a[href*='pocketcasts.com']::after,
+a[href*='podcasts.apple.com']::after,
+a[href*='spotify.com']::after {
+	content: '🎙️';
+}
+
+/* Academic / Research */
+a[href*='doi.org']::after,
+a[href*='jstor.org']::after,
+a[href*='arxiv.org']::after {
+	content: '🔬';
+}
+
+/* News sources Ruz-el uses / references */
+a[href*='technologyreview.com']::after {
+	content: '🔭';
+}
+
+a[href*='techdirt.com']::after {
+	content: '⚖️';
+}
+
+/* ── Paywalled / subscription sources ───────────────────────────── */
+/* Add domains here as needed */
+
+a[href*='nytimes.com']::after,
+a[href*='theatlantic.com']::after,
+a[href*='wired.com']::after {
+	content: '🔒';
+}
