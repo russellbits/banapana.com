@@ -1,0 +1,34 @@
+{
+	"project": {
+		"name": "Banapana",
+		"author": "R.E. Warner",
+		"baseUrl": "https://banapana.com"
+	},
+	"content": {
+		"dir": "./content",
+		"extension": ".md",
+		"defaultStatus": "draft",
+		"sourceFile": "article.md"
+	},
+	"staging": {
+		"dir": "./src/routes/articles",
+		"format": "svx",
+		"filenamePattern": "[slug]/+page.svx"
+	},
+	"build": {
+		"adapter": "shell",
+		"command": "npm run build",
+		"outputDir": "./build",
+		"validationFiles": ["index.html"]
+	},
+	"deploy": {
+		"adapter": "ftp",
+		"host": "${FTP_HOST}",
+		"port": 21,
+		"user": "${FTP_USER}",
+		"password": "${FTP_PASSWORD}",
+		"remotePath": "/home/tropedc/domains/banapana.com/",
+		"sync": "additive"
+	},
+	"statuses": ["pitch", "draft", "review", "ready", "scheduled", "published", "re-pub", "archived"]
+}

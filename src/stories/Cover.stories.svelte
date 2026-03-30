@@ -24,3 +24,33 @@
     articles: ARTICLES
   }}
 />
+
+<Story
+  name="Home (no logo link)"
+  args={{
+    title: 'Doomtubers',
+    cover_img_url: 'https://picsum.photos/seed/banapana/1600/900',
+    articles: ARTICLES,
+    isHome: true
+  }}
+/>
+
+<Story
+  name="With Column Badge"
+  args={{
+    title: 'Doomtubers',
+    cover_img_url: 'https://picsum.photos/seed/banapana/1600/900',
+    articles: ARTICLES,
+    column: 'Scamtube'
+  }}
+/>
+
+<Story
+  name="With AI Diaspora Badge"
+  args={{
+    title: 'The Fluency Illusion',
+    cover_img_url: 'https://picsum.photos/seed/fluency/1600/900',
+    articles: ARTICLES,
+    column: 'The AI Diaspora'
+  }}
+/>

@@ -1,15 +1,14 @@
 ---
 Title: “On the Grand Library of Montreal and A Hopeful Future with A.I.”
-Subtitle: --
-Author: R. E. Warner
-Summary: "AI agents are fundamentally changing content management by automating what humans find chaotic—organizing, categorizing, and generating content at scale—ushering in a new era of agentic systems that go beyond traditional CMS platforms."
-Section: Social Butterfly
-Column: --
-Tags: [CMS, content, blog, ai, webdevelopment]
-Created: 2023-12-20
-Modified: 2023-12-20
-Status: published
-
+Subtitle: “--”
+Author: “R. E. Warner”
+Summary: “AI agents are fundamentally changing content management by automating what humans find chaotic—organizing, categorizing, and generating content at scale—ushering in a new era of agentic systems that go beyond traditional CMS platforms.”
+Section: “Social Butterfly”
+Column: “--”
+Tags: “#CMS, #content, #blog, #ai, #webdevelopment”
+Created: “2023-12-20”
+Modified: “2023-12-20”
+Status: “published”
 ---
 
 ![The exterior and interior of the lobby of the Grand Library of Montreal.](./media/inside-outside-cover.jpg)
@@ -57,8 +56,8 @@ Places to explore and play music.
 Places to fabricate new inventions.
 
 [SIDEBAR]
-title: "3D Printing!?"
-content: "This to me is the ultimate expression of appreciting the value of the public good, and I believe that it is a fundamental right for all people to have access to this technology, which can help us create solutions to improve our lives."
+#### 3D Printing!?
+This to me is the ultimate expression of appreciating the value of the public good, and I believe that it is a fundamental right for all people to have access to this technology, which can help us create solutions to improve our lives.
 [/SIDEBAR]
 
 ![A publicly available laboratory for the invention of prototypes.](./media/fab_lab.jpg)

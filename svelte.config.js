@@ -1,6 +1,7 @@
 import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-static';
 import relativeImages from 'mdsvex-relative-images';
+import remarkFootnotes from 'remark-footnotes';
 import { preprocessSidebar } from './src/lib/preprocess-sidebar.js';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -16,7 +17,7 @@ const config = {
 		preprocessSidebar(),
 		mdsvex({
 			extensions: ['.md', '.svx'],
-			remarkPlugins: [relativeImages]
+			remarkPlugins: [relativeImages, [remarkFootnotes, { inlineNotes: true }]]
 		})
 	],
 	extensions: ['.svelte', '.md', '.svx']

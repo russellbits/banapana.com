@@ -8,79 +8,74 @@
 
 {#if sectionData.svgFile}
 	<div class="section-tab" style="background-color: {sectionData.color}; --rotation: {rotation}deg">
-		<div class="icon-circle">
-			<img
-				src="/symbols/{sectionData.svgFile}.svg"
-				alt={section}
-				width="36"
-				height="36"
-			/>
+		<div class="section-tab-contents">
+			<img src="/symbols/{sectionData.svgFile}.svg" alt={section} width="110" height="110" />
+			<span class="dept-of">Dept. of</span>
+			<span class="section-name">{section}</span>
 		</div>
-		<span class="dept-of">Dept. of</span>
-		<span class="section-name">{section}</span>
 	</div>
 {/if}
 
 <style>
 	/* Mobile default: inline square centered between the cover and article body */
 	.section-tab {
+		position: absolute;
+		left: -70px;
+		top: 80vh;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 90px;
-		height: 90px;
+		flex-direction: row;
+		justify-content: flex-end;
 		border-radius: 8px;
+		min-width: 200px;
 		padding: 0.5rem;
 		margin: 1.5rem auto;
-		gap: 0.3rem;
-		text-align: center;
 		transform: rotate(var(--rotation, 0deg));
 	}
 
-	.icon-circle {
-		width: 44px;
-		height: 44px;
-		background: rgba(255, 255, 255, 0.2);
-		border-radius: 50%;
+	.section-tab-contents {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		overflow: hidden;
+		width: 160px;
+		gap: 0.3rem;
+		padding: 0.2em 0 0.2em 0.2em;
+		margin-right: -1em;
 	}
 
-	.icon-circle img {
-		width: 32px;
-		height: 32px;
+	.section-tab img {
+		width: 70px;
+		height: 70px;
 		object-fit: contain;
 	}
 
 	.dept-of {
 		font-family: Inter, sans-serif;
-		font-size: 0.45rem;
+		font-size: 0.6rem;
 		font-weight: 600;
 		letter-spacing: 0.08em;
-		color: rgba(255, 255, 255, 0.75);
+		color: rgba(255, 255, 255, 1);
 		text-transform: uppercase;
 	}
 
 	.section-name {
 		font-family: Inter, sans-serif;
-		font-size: 0.55rem;
+		font-size: 1rem;
 		font-weight: 800;
+		text-align: center;
 		color: #fff;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		line-height: 1.2;
+		letter-spacing: 0.03em;
+		line-height: 1.2em;
+		margin-top: -10px;
 	}
 
 	/* Desktop: pull the tab out of the flow and pin it to the left gutter */
 	@media (min-width: 900px) {
 		.section-tab {
-			position: fixed;
-			left: max(0.5rem, calc(50vw - 420px));
-			top: 50%;
-			transform: translateY(-50%) rotate(var(--rotation, 0deg));
+			position: absolute;
+			left: -70px;
+			top: 80vh;
+			transform: translateY(-50%) rotate(-4deg);
 			z-index: 5;
 			width: 72px;
 			height: auto;
@@ -89,22 +84,9 @@
 			gap: 0.4rem;
 		}
 
-		.icon-circle {
-			width: 48px;
-			height: 48px;
-		}
-
-		.icon-circle img {
-			width: 36px;
-			height: 36px;
-		}
-
-		.dept-of {
-			font-size: 0.5rem;
-		}
-
-		.section-name {
-			font-size: 0.6rem;
+		.section-tab img {
+			width: 110px;
+			height: 110px;
 		}
 	}
 </style>

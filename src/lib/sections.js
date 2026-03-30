@@ -1,13 +1,13 @@
 export const SECTIONS = {
-	'Fabertising': {
+	Fabertising: {
 		cssName: 'fabertising',
 		color: '#E042E0',
 		svgFile: 'fabertising'
 	},
-	"They're Thinking": {
-		cssName: 'they_re_thinking',
+	"It's Thinking": {
+		cssName: 'its_thinking',
 		color: '#5EC035',
-		svgFile: 'they-re-thinking'
+		svgFile: 'it-s-thinking'
 	},
 	'Mind Control': {
 		cssName: 'mind_control',
@@ -16,7 +16,7 @@ export const SECTIONS = {
 	},
 	'Made You Look': {
 		cssName: 'made_you_look',
-		color: '#3AB7F4',
+		color: '#7645AF',
 		svgFile: 'made-you-look'
 	},
 	'Design Science': {
@@ -51,5 +51,5 @@ export function slugRotation(str) {
 	for (let i = 0; i < str.length; i++) {
 		hash = (hash * 31 + str.charCodeAt(i)) & 0xffffffff;
 	}
-	return ((Math.abs(hash) % 9) - 4); // integer -4 to +4
+	return (Math.abs(hash) % 9) - 4; // integer -4 to +4
 }

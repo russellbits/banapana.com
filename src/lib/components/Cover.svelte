@@ -7,30 +7,59 @@
 	export let title = '';
 	export let cover_img_url = 'media/cover.jpg';
 	export let articles = [];
+	export let column = '';
+	export let isHome = false;
 
 	let tocOpen = false;
+
+	function isNull(val) {
+		return !val || val === '--' || /^-+$/.test(val.trim());
+	}
+
+	function slugifyColumn(name) {
+		return name
+			.trim()
+			.toLowerCase()
+			.replace(/[^a-z0-9 -]/g, '-')
+			.replace(/ +/g, '-')
+			.replace(/-{2,}/g, '-')
+			.replace(/^-+|-+$/g, '')
+			.replace(/^the-/, '');
+	}
+
+	$: badgeSlug = !isNull(column) ? slugifyColumn(column) : '';
+	$: badgeSrc = badgeSlug ? `/images/column-badges/${badgeSlug}.png` : '';
 </script>
 
-<div class="cover">
-	<div class="bg-layer" style="--cover-url: url('{cover_img_url}')"></div>
-	<div class="gradient-overlay"></div>
-	<div class="particles">
-		<span></span><span></span><span></span><span></span><span></span>
-		<span></span><span></span><span></span><span></span><span></span>
-	</div>
+<div class="cover-wrapper">
 	<div class="pubdate-wrapper">
 		<PubDate />
 	</div>
-	<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
-	<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
-	<div class="content">
-		<Logo />
-		<h1 class="title">{title}</h1>
+	<div class="cover">
+		<div class="bg-layer" style="--cover-url: url('{cover_img_url}')"></div>
+		<div class="gradient-overlay"></div>
+		<div class="particles">
+			<span></span><span></span><span></span><span></span><span></span>
+			<span></span><span></span><span></span><span></span><span></span>
+		</div>
+		<HamburgerMenu open={tocOpen} on:toggle={() => (tocOpen = !tocOpen)} />
+		<TableOfContents {articles} open={tocOpen} on:close={() => (tocOpen = false)} />
+		<div class="content">
+			{#if isHome}
+				<Logo />
+			{:else}
+				<a href="/" class="logo-link"><Logo /></a>
+			{/if}
+			{#if !isNull(column)}<h5 class="column-title">{column}:</h5>{/if}
+			<h1 class="title">{title}</h1>
+		</div>
 	</div>
+	{#if badgeSrc}
+		<img class="column-badge" src={badgeSrc} alt={column} />
+	{/if}
 </div>
 
 <style>
-/*
 	@keyframes gradientShift {
 		0% {
 			background-position: 0% 50%;
@@ -76,22 +105,24 @@
 		}
 	}
 
+	/*
 	@keyframes glow {
 		0%,
 		100% {
 			text-shadow:
-				0 0 20px rgba(255, 200, 0, 0.8),
-				0 0 40px rgba(255, 100, 0, 0.6),
-				4px 4px 8px rgba(0, 0, 0, 0.8);
+				0 0 20px rgba(255, 255, 255, 0.8),
+				0 0 40px rgba(177, 250, 76, 0.6),
+				4px 4px 6px rgba(0, 0, 0, 0.8);
 		}
 		50% {
 			text-shadow:
-				0 0 40px rgba(255, 200, 0, 1),
-				0 0 80px rgba(255, 100, 0, 0.8),
-				4px 4px 8px rgba(0, 0, 0, 0.8);
+				0 0 40px rgba(255, 255, 255, 1),
+				0 0 80px rgba(177, 250, 76, 0.6),
+				4px 4px 6px rgba(0, 0, 0, 0.8);
 		}
 	}
-*/
+	*/
+
 	@font-face {
 		font-family: 'Roboto Slab';
 		src: url('/fonts/RobotoSlab-VariableFont.woff2') format('woff2');
@@ -213,9 +244,9 @@
 
 	.pubdate-wrapper {
 		position: absolute;
-		top: 20px;
+		top: -25px;
 		left: 20px;
-		z-index: 10;
+		z-index: 200;
 	}
 
 	.content {
@@ -225,6 +256,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
+		margin-top: 6rem;
 		width: 100%;
 		height: 100%;
 	}
@@ -245,6 +277,14 @@
 		margin: 0;
 	}
 
+	.column-title {
+		font-family: 'Roboto Slab', serif;
+		font-size: clamp(14px, 4vw, 24px);
+		font-weight: 500;
+		color: #fff;
+		margin: 0;
+	}
+
 	@media (max-width: 768px) {
 		.title {
 			font-size: 38px;
@@ -261,5 +301,24 @@
 			font-size: 26px;
 			padding: 0 1em;
 		}
+	}
+
+	.cover-wrapper {
+		position: relative;
+	}
+
+	.logo-link {
+		display: block;
+		line-height: 0;
+	}
+
+	.column-badge {
+		position: absolute;
+		bottom: 0;
+		right: clamp(16px, 4vw, 60px);
+		transform: translateY(50%) rotate(-4deg);
+		width: clamp(50px, calc(100vw / 6), 200px);
+		height: auto;
+		z-index: 20;
 	}
 </style>
