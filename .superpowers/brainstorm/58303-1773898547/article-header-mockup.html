@@ -1,0 +1,91 @@
+<h2>Article_Header Component</h2>
+<p class="subtitle">Desktop view (full width) vs. mobile view (stacked). Click a design to select it.</p>
+
+<div class="cards">
+  <div class="card" data-choice="design" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+
+      <!-- DESKTOP MOCKUP -->
+      <div style="background: #fafaf8; padding: 1.5rem 2rem; font-family: Georgia, serif; border-bottom: 3px solid #e0e0dc;">
+        <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">Desktop</div>
+
+        <!-- Row 1: author / read time / date -->
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 0;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <img src="https://i.pravatar.cc/36?img=12" width="36" height="36"
+                 style="border-radius: 50%; object-fit: cover; border: 1px solid #d4d4cc;" alt="avatar" />
+            <span style="font-family: Georgia, serif; font-size: 0.9rem; color: #1a1a18; font-style: italic;">R.E. Warner</span>
+          </div>
+          <span style="color: #6b6b63; font-size: 0.85rem;">⏱ 7 min read</span>
+          <span style="color: #6b6b63; font-size: 0.85rem;">Mar 19, 2026</span>
+        </div>
+
+        <!-- Row 2: emoji actions -->
+        <div style="display: flex; gap: 1.5rem; padding: 0.6rem 0; margin-top: 0.75rem;
+                    border-top: 1px solid #d4d4cc; border-bottom: 1px solid #d4d4cc;">
+          <span style="font-size: 1.2rem; cursor: pointer;" title="Applaud">👏</span>
+          <span style="font-size: 1.2rem; cursor: pointer;" title="Bookmark">🔖</span>
+          <span style="font-size: 1.2rem; cursor: pointer;" title="Share">🔗</span>
+        </div>
+      </div>
+
+      <!-- MOBILE MOCKUP -->
+      <div style="background: #fafaf8; padding: 1.5rem 1rem; font-family: Georgia, serif; max-width: 320px; margin: 0 auto; border-top: 3px solid #e0e0dc;">
+        <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">Mobile (stacked)</div>
+
+        <!-- Row 1 stacked -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <img src="https://i.pravatar.cc/32?img=12" width="32" height="32"
+                 style="border-radius: 50%; object-fit: cover; border: 1px solid #d4d4cc;" alt="avatar" />
+            <span style="font-family: Georgia, serif; font-size: 0.9rem; color: #1a1a18; font-style: italic;">R.E. Warner</span>
+          </div>
+          <div style="display: flex; gap: 1.2rem;">
+            <span style="color: #6b6b63; font-size: 0.8rem;">⏱ 7 min read</span>
+            <span style="color: #6b6b63; font-size: 0.8rem;">Mar 19, 2026</span>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="display: flex; gap: 1.5rem; padding: 0.6rem 0; margin-top: 0.75rem;
+                    border-top: 1px solid #d4d4cc; border-bottom: 1px solid #d4d4cc;">
+          <span style="font-size: 1.1rem;">👏</span>
+          <span style="font-size: 1.1rem;">🔖</span>
+          <span style="font-size: 1.1rem;">🔗</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-body">
+      <h3>Article_Header layout</h3>
+      <p>Row 1 uses flexbox with 2rem gaps — avatar + name, read time, date. On mobile, avatar+name stay together while read time and date drop to their own row. Row 2 is emoji-only, bordered top and bottom.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Architecture approach</h3>
+  <div class="options">
+    <div class="option" data-choice="layout" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>In the root layout</h3>
+        <p>Add Article_Header to <code>+layout.svelte</code> between Cover and <code>#page</code>. Reads from <code>$page.data</code>. Shown whenever <code>author</code> is present. No per-article changes needed.</p>
+      </div>
+    </div>
+    <div class="option" data-choice="nested-layout" onclick="toggleSelect(this)">
+      <div class="letter">B</div>
+      <div class="content">
+        <h3>Nested article layout</h3>
+        <p>Add a <code>src/routes/[year]/[month]/[slug]/+layout.svelte</code> that wraps only article pages. Cleaner separation but requires a new file and careful slot handling.</p>
+      </div>
+    </div>
+    <div class="option" data-choice="in-page" onclick="toggleSelect(this)">
+      <div class="letter">C</div>
+      <div class="content">
+        <h3>Inside each article SVX</h3>
+        <p>Each <code>+page.svx</code> imports and renders Article_Header manually. Maximum flexibility, but requires touching every article file.</p>
+      </div>
+    </div>
+  </div>
+</div>

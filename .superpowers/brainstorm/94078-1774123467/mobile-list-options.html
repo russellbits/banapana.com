@@ -1,0 +1,60 @@
+<h2>ArticleHeader — Mobile List Layout</h2>
+<p class="subtitle">How should the items stack on small screens? Pick the layout that feels right.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf8;padding:1.2rem 1.5rem;font-family:Georgia,serif;">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#ccc;flex-shrink:0;"></div>
+        <span style="font-size:0.9rem;font-style:italic;">R. E. Warner</span>
+      </div>
+      <div style="font-size:0.82rem;color:#6b6b63;margin-bottom:0.3rem;">⏱ 4 min read</div>
+      <div style="font-size:0.82rem;color:#6b6b63;margin-bottom:0.3rem;">Mar 21, 2026</div>
+      <div style="font-size:0.82rem;color:#5ec035;">Dept. of It's Thinking</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full stack</h3>
+      <p>Every item on its own line, top to bottom. Simple and clear.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf8;padding:1.2rem 1.5rem;font-family:Georgia,serif;">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#ccc;flex-shrink:0;"></div>
+        <span style="font-size:0.9rem;font-style:italic;">R. E. Warner</span>
+      </div>
+      <div style="display:flex;gap:1.2rem;font-size:0.82rem;color:#6b6b63;margin-bottom:0.4rem;">
+        <span>⏱ 4 min read</span>
+        <span>Mar 21, 2026</span>
+      </div>
+      <div style="font-size:0.82rem;color:#5ec035;">Dept. of It's Thinking</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Author row, meta row, section row</h3>
+      <p>Avatar+name on line 1, read time+date paired on line 2, section on line 3.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf8;padding:1.2rem 1.5rem;font-family:Georgia,serif;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#ccc;flex-shrink:0;"></div>
+          <span style="font-size:0.9rem;font-style:italic;">R. E. Warner</span>
+        </div>
+        <span style="font-size:0.82rem;color:#5ec035;">It's Thinking</span>
+      </div>
+      <div style="display:flex;gap:1.2rem;font-size:0.82rem;color:#6b6b63;">
+        <span>⏱ 4 min read</span>
+        <span>Mar 21, 2026</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Two rows, section inline</h3>
+      <p>Author + section on one row (opposite ends), read time + date below.</p>
+    </div>
+  </div>
+
+</div>
