@@ -123,13 +123,6 @@
 	}
 	*/
 
-	@font-face {
-		font-family: 'Roboto Slab';
-		src: url('/fonts/RobotoSlab-VariableFont.woff2') format('woff2');
-		font-weight: 100 900;
-		font-display: swap;
-	}
-
 	.cover {
 		position: relative;
 		width: 100%;
@@ -263,7 +256,7 @@
 
 	.title {
 		font-family: 'Roboto Slab', serif;
-		font-size: clamp(38px, 8vw, 96px);
+		font-size: clamp(38px, 8vw, 72px);
 		font-weight: 900;
 		color: #fff;
 		text-transform: uppercase;
@@ -273,6 +266,7 @@
 			slideIn 1s ease-out 0.3s both;
 		text-align: center;
 		line-height: 1;
+		width: 70vw;
 		padding: 0 24px;
 		margin: 0;
 	}
