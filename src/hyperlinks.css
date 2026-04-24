@@ -17,10 +17,6 @@ a[href]::after {
 	border-bottom: 1px solid white;
 }
 
-p:has(a[href]::after) {
-	text-indent: none;
-}
-
 /* ── Protocol-based ──────────────────────────────────────────────── */
 
 a[href^='mailto:']::after {
