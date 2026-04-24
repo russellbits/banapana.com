@@ -8,7 +8,7 @@
 	import { getAllArticles } from '$lib/content.js';
 	import { getSection, slugRotation } from '$lib/sections.js';
 	import { page } from '$app/state';
-	import '../app.css';
+
 	const rootCovers = import.meta.glob('./media/cover.{jpg,png,webp}', {
 		eager: true,
 		query: '?url',
