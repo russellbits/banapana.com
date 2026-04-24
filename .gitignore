@@ -12,6 +12,13 @@ node_modules
 .DS_Store
 Thumbs.db
 
+# LLM
+.claude
+.opencode
+.superpowers/brianstorm
+AGENTS.md
+CLAUDE.md
+
 # Env
 .env
 .env.*
